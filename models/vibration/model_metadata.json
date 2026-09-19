@@ -1,0 +1,110 @@
+{
+  "model_name": "random_forest",
+  "model_version": "vibration-v1",
+  "dataset": "IMS_1st_test_channel4",
+  "class_names": [
+    "healthy",
+    "degrading",
+    "severe"
+  ],
+  "feature_columns": [
+    "rms",
+    "std",
+    "crest_factor",
+    "kurtosis",
+    "skewness",
+    "peak",
+    "peak_to_peak",
+    "dominant_frequency",
+    "spectral_centroid",
+    "spectral_bandwidth"
+  ],
+  "random_seed": 42,
+  "train_count": 1500,
+  "validation_count": 320,
+  "test_count": 336,
+  "test_macro_f1": 1.0,
+  "test_report": {
+    "healthy": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 16.0
+    },
+    "degrading": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 232.0
+    },
+    "severe": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 88.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 336.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 336.0
+    }
+  },
+  "test_confusion_matrix": [
+    [
+      16,
+      0,
+      0
+    ],
+    [
+      0,
+      232,
+      0
+    ],
+    [
+      0,
+      0,
+      88
+    ]
+  ],
+  "feature_importance": {
+    "rms": 0.1991144117927932,
+    "std": 0.16087234530108319,
+    "crest_factor": 0.06369243646865898,
+    "kurtosis": 0.19369986121306873,
+    "skewness": 0.0008825952129633081,
+    "peak": 0.05872095598926395,
+    "peak_to_peak": 0.15337752598109816,
+    "dominant_frequency": 0.03070350289279693,
+    "spectral_centroid": 0.13532427573861264,
+    "spectral_bandwidth": 0.0036120894096610804
+  },
+  "all_models_val_macro_f1": {
+    "logistic_regression": 0.9882791897013147,
+    "random_forest": 1.0,
+    "gradient_boosting": 1.0
+  },
+  "IMPORTANT_tautology_finding": {
+    "warning": "The 1.0 test macro-F1 above is NOT evidence of a validated, independent bearing-fault detector. rms and kurtosis are BOTH direct inputs to this model AND the exact quantities the labels were derived from (see models/vibration/vibration_task_definition.json). A sufficiently expressive model can trivially reconstruct the labeling rule from those two features alone - this is label leakage via feature identity, not learned physical insight.",
+    "ablation_performed": "Retrained RandomForest (same split, same seed) with reduced feature sets to check for genuine independent signal:",
+    "ablation_results_test_macro_f1": {
+      "all_10_features_original": 1.0,
+      "excluding_rms_and_kurtosis_8_features": 0.9684,
+      "spectral_and_skewness_only_4_features_no_amplitude": 0.8567
+    },
+    "interpretation": "Excluding the exact labeling variables still gives 0.968 F1 because std/crest_factor/peak/peak_to_peak are mechanically correlated proxies for the same amplitude signal. Only when ALL amplitude-related features are removed (leaving just dominant_frequency, spectral_centroid, spectral_bandwidth, skewness) does the score drop to a still-strong-but-honestly-lower 0.857 - this is the best available estimate of genuinely independent discriminative signal in this dataset, and it IS real (well above chance for 3 imbalanced classes), just weaker than the full/tautological number implies.",
+    "recommendation": "Report 1.0 only alongside this caveat. Treat 0.857 (spectral-only) as the more scientifically honest lower-bound estimate of real generalizable signal. The exported model (using all 10 features) is legitimate as a fast, portable implementation of the derived labeling rule, but must not be marketed as an independently-validated fault classifier."
+  },
+  "temporal_behavior_check": {
+    "method": "Predictions from both the full model and a spectral-only (non-tautological) model were generated across the ENTIRE chronological trajectory (all 2156 files, train+val+test) and compared against the derived labels in 150-file chunks.",
+    "finding": "Both models show a physically coherent temporal progression: healthy (files ~0-150) -> transition to degrading (~150-300) -> sustained degrading with a gradually increasing fraction of severe predictions from ~file 600 onward -> severe becomes dominant near the end (~file 1950+). This matches the expected bearing-spalling narrative (progressive worsening, not random oscillation). The spectral-only model's agreement with the derived label stays above ~90% through most of the trajectory and only drops near the very end (59% in the final 56-file chunk), which is expected since it cannot see the amplitude signal the label partly depends on.",
+    "verdict": "Temporally sensible - not flagged as randomly oscillating."
+  }
+}

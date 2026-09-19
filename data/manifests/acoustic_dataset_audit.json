@@ -1,0 +1,56 @@
+{
+  "dataset_dir": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\DATASET\\bearing\\bearing",
+  "total_files": 3599,
+  "unparsed_files": [],
+  "label_counts": {
+    "normal": 3299,
+    "anomaly": 300
+  },
+  "domain_counts": {
+    "source": 3270,
+    "target": 329
+  },
+  "section_counts": {
+    "00": 1200,
+    "01": 1199,
+    "02": 1200
+  },
+  "vendor_split_counts": {
+    "train": 2999,
+    "test": 600
+  },
+  "vendor_train_label_counts": {
+    "normal": 2999
+  },
+  "section_domain_label_breakdown": {
+    "00|source|normal": 1040,
+    "00|target|normal": 60,
+    "01|source|normal": 1040,
+    "01|target|normal": 59,
+    "02|source|normal": 1040,
+    "02|target|normal": 60,
+    "00|source|anomaly": 50,
+    "00|target|anomaly": 50,
+    "01|source|anomaly": 50,
+    "01|target|anomaly": 50,
+    "02|source|anomaly": 50,
+    "02|target|anomaly": 50
+  },
+  "sample_rate_consistency": {
+    "16000": 3599
+  },
+  "channel_consistency": {
+    "1": 3599
+  },
+  "sample_width_byte_consistency": {
+    "2": 3599
+  },
+  "duration_seconds": {
+    "min": 10.0,
+    "max": 10.0,
+    "mean": 10.0
+  },
+  "exact_duplicate_content_groups_found": 0,
+  "exact_duplicate_examples": {},
+  "critical_finding": "The vendor 'train' folder contains ONLY normal-label files (zero anomaly examples) - this is a domain-generalization-style dataset layout (source domain: plentiful normal training data; target domain: a handful of normal + a held-out test set with both classes). A supervised classifier CANNOT be trained using the vendor train/test folders as-is, since vendor-train has no anomaly examples at all. All files (both vendor folders) must be pooled and re-split for this supervised baseline task."
+}

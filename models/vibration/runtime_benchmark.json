@@ -1,0 +1,25 @@
+{
+  "n_windows": 100,
+  "channel": 4,
+  "window_samples": 20480,
+  "sample_rate": 20000.0,
+  "model_available": true,
+  "feature_extraction_ms": {
+    "mean_ms": 4.037603999313433,
+    "p95_ms": 5.002035007055383,
+    "max_ms": 5.425699986517429
+  },
+  "ml_inference_ms": {
+    "mean_ms": 9.406396000413224,
+    "p95_ms": 11.306019993207883,
+    "max_ms": 15.100000018719584
+  },
+  "total_vibration_cycle_ms": {
+    "mean_ms": 13.443999999726657,
+    "p95_ms": 15.815900002780834,
+    "max_ms": 18.741600011708215
+  },
+  "effective_windows_per_second": 74.38262422049479,
+  "cpu_percent_during_benchmark": null,
+  "note": "Measured directly, not extrapolated from thermal ML performance. This is a tabular RandomForest on a 10-feature vector, not an image CNN."
+}

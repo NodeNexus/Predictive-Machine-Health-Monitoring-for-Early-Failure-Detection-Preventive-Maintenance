@@ -1,0 +1,42 @@
+{
+  "threshold": 0.8,
+  "note": "These are independently recorded 10-second clips, not windows of a shared longer recording (unlike Vibration ML V1's IMS timeline) - there is no temporal-continuity behavior to check for oscillation, and no temporal smoothing was added since none is warranted.",
+  "by_section_domain_group": {
+    "00|source": {
+      "n": 163,
+      "n_accepted": 156,
+      "coverage": 0.9570552147239264,
+      "accuracy_on_accepted": 1.0
+    },
+    "00|target": {
+      "n": 16,
+      "n_accepted": 11,
+      "coverage": 0.6875,
+      "accuracy_on_accepted": 0.9090909090909091
+    },
+    "01|source": {
+      "n": 163,
+      "n_accepted": 148,
+      "coverage": 0.9079754601226994,
+      "accuracy_on_accepted": 0.9864864864864865
+    },
+    "01|target": {
+      "n": 16,
+      "n_accepted": 12,
+      "coverage": 0.75,
+      "accuracy_on_accepted": 0.9166666666666666
+    },
+    "02|source": {
+      "n": 163,
+      "n_accepted": 153,
+      "coverage": 0.9386503067484663,
+      "accuracy_on_accepted": 0.9607843137254902
+    },
+    "02|target": {
+      "n": 16,
+      "n_accepted": 13,
+      "coverage": 0.8125,
+      "accuracy_on_accepted": 0.8461538461538461
+    }
+  }
+}

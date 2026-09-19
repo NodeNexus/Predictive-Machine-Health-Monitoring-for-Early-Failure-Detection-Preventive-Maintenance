@@ -1,0 +1,160 @@
+{
+  "task": "Multimodal ML Fusion V1 - task definition",
+  "inputs": {
+    "thermal": {
+      "model": "MobileNetV3-Small",
+      "outputs": ["class_prediction", "confidence", "condition_context", "load_context"],
+      "known_limitation": "Load-level confusion is significant (CFL<->CML, HML->HFL) - see models/thermal/model_metadata.json. Misclassified predictions have MEDIAN confidence 0.962, essentially indistinguishable from correct predictions' median 0.960, so confidence alone cannot separate this specific confusion mode."
+    },
+    "vibration": {
+      "model": "Random Forest (vibration-v1)",
+      "outputs": ["healthy", "degrading", "severe"],
+      "known_limitation": "Labels are PROJECT-DERIVED from a documented statistical rule applied to the IMS run-to-failure trajectory, not original dataset ground truth. RMS and kurtosis participate in BOTH the input features and the label-construction rule (label leakage via feature identity). The model is a derived-label trajectory classifier, NOT an independently validated fault detector - test macro-F1 of 1.0 reflects rule reconstruction, not proven fault detection (ablation on non-amplitude features alone: 0.857 F1, the more honest lower bound)."
+    },
+    "acoustic": {
+      "model": "Logistic Regression (acoustic-v1)",
+      "outputs": ["normal", "anomaly"],
+      "measured_test_performance": {
+        "accuracy": 0.959,
+        "macro_f1": 0.883,
+        "roc_auc": 0.991,
+        "pr_auc": 0.886
+      },
+      "known_limitation": "Performance varies across machine sections/domain groups (macro-F1 0.789-0.965 across section|domain groups on the untouched test set) - cross-section generalization is not fully established. High confidence on one clip is NOT proof the model generalizes to every machine section."
+    }
+  },
+
+  "objective": "Determine what a multimodal fusion layer should predict, given three independently trained, independently limited modality models whose underlying datasets are NOT synchronized recordings of one physical machine.",
+
+  "candidate_fusion_targets": {
+    "option_a_binary_normal_abnormal": {
+      "description": "machine_normal vs machine_abnormal, collapsing all three modalities into one binary label",
+      "semantic_consistency": "High in principle - 'is something wrong' is well-posed regardless of synchronization.",
+      "label_availability": "NONE - no synchronized multi-machine dataset with a true binary machine-state label exists. Any label would have to be fabricated from independently-recorded, non-simultaneous modality samples.",
+      "compatibility_with_deterministic_engine": "High - the existing FusionEngine's 3-class status already collapses cleanly to binary if needed.",
+      "defensible_training_dataset": "NO - would require pretending unrelated thermal/vibration/acoustic samples represent the same machine at the same moment (explicitly forbidden by this task).",
+      "independent_evaluability": "Not possible without the missing dataset.",
+      "verdict": "Rejected as a SUPERVISED target for V1 - no defensible way to obtain training labels without fabrication."
+    },
+    "option_b_three_class_health_state": {
+      "description": "machine_health_state = normal / warning / critical, matching the deterministic engine's own output classes",
+      "semantic_consistency": "Superficially attractive (matches existing MachineHealthState.status), but training a model to predict what a deterministic RULE ENGINE already computes is imitation learning of that rule, not new independent signal - and the rule engine's own thresholds are a moving target this model would silently depend on.",
+      "label_availability": "NONE (same synchronized-dataset problem as Option A) - and even if solved, the 'label' would just be the deterministic engine's own output, making the exercise circular.",
+      "compatibility_with_deterministic_engine": "High by construction, but for the wrong reason - it would be redundant with, not complementary to, the existing engine.",
+      "defensible_training_dataset": "NO.",
+      "independent_evaluability": "Would only measure agreement with the deterministic engine, not truth.",
+      "verdict": "Rejected for V1 - conflates 'compatible' with 'independently validated'; the deterministic engine already produces this output without needing an ML model."
+    },
+    "option_c_fault_context_evidence_level_fusion": {
+      "description": "Modality outputs (prediction, confidence, reliability) become EVIDENCE consumed by a fusion LOGIC layer (rule-based or weighted), rather than raw labels used to train a new end-to-end classifier.",
+      "semantic_consistency": "High - explicitly honest about what each modality model actually is: an independently-validated (to varying degrees) evidence source, not a ground-truth oracle. Matches the exact framing already used for each V1 model's own confidence gate ('evidence only, never replaces the deterministic engine').",
+      "label_availability": "NOT REQUIRED - evidence-level fusion (rule-based or weighted-average) needs no paired training labels at all; it operates on already-independently-produced per-modality evidence at inference time, exactly like the existing deterministic FusionEngine already does with per-modality anomaly severities.",
+      "compatibility_with_deterministic_engine": "Highest of all options - this is a direct, natural extension of the SAME evidence-combination paradigm the deterministic engine already implements (see app/fusion/engine.py's severity averaging and confidence-by-coverage pattern), just adding an ML-evidence-specific weighted combination alongside it.",
+      "defensible_training_dataset": "Not needed for V1 (rule-based/weighted). A future shallow meta-classifier (Candidate 3) COULD be trained later, but only if/when a real synchronized multimodal dataset becomes available - explicitly deferred, not attempted here.",
+      "independent_evaluability": "Each modality's own evidence is already independently validated (per-modality V1 reports). The FUSION LOGIC itself can be evaluated via scenario-based sanity checks (does the combination behave sensibly across all availability/confidence combinations - see step 9's demo scenarios) rather than a supervised test-set metric that would require the missing dataset.",
+      "verdict": "SELECTED for Multimodal Fusion V1."
+    },
+    "option_d_continuous_health_score_regression": {
+      "description": "A single continuous 0-100 ML-fused health score, analogous to the deterministic engine's health_score",
+      "semantic_consistency": "Same circularity risk as Option B, compounded across three modalities: Vibration ML V1's own health_index is already an explicitly-flagged self-consistent DERIVED index with no independent ground truth (see models/vibration/vibration_task_definition.json) - regressing a fusion score against a target built partly from that would multiply, not resolve, the tautology risk.",
+      "label_availability": "NONE - same missing-dataset problem, plus no independently-measured 'true' continuous health value exists anywhere in this project's data.",
+      "compatibility_with_deterministic_engine": "The deterministic engine already computes health_score=100*(1-avg_severity) without needing an ML model.",
+      "defensible_training_dataset": "NO.",
+      "independent_evaluability": "Not possible - MAE/RMSE/R2 against a self-consistent derived target would only measure self-recovery, not accuracy.",
+      "verdict": "Rejected for V1."
+    }
+  },
+
+  "selected_target": "option_c_fault_context_evidence_level_fusion",
+  "selection_reasoning": "Options A, B and D all require a supervised training label that does not exist and cannot be constructed without fabricating synchronized multimodal samples - explicitly forbidden by this task. Option C is the only target that requires no fabricated dataset, is directly compatible with (rather than redundant with, or competing against) the existing deterministic fusion engine, and can be evaluated on its own terms (evidence-combination correctness) rather than against a metric that would be meaningless here.",
+
+  "label_problem": {
+    "statement": "The thermal (bearing thermal images), vibration (IMS run-to-failure accelerometer data) and acoustic (DCASE-style bearing sound clips) datasets are three SEPARATE, INDEPENDENTLY COLLECTED datasets from different sources, different physical rigs, and different points in time. They are NOT synchronized recordings of one machine's simultaneous thermal/vibration/acoustic state.",
+    "consequence": "Constructing a 'multimodal sample' by pairing one thermal image + one vibration window + one acoustic clip would require choosing an arbitrary correspondence between unrelated recordings. Any label derived from such a fabricated triple (e.g. 'thermal says CFL, vibration says severe, acoustic says anomaly, therefore label=abnormal') would be describing three DIFFERENT machines/moments dressed up as one - a fabricated dataset, explicitly forbidden by this task's instructions.",
+    "true_synchronized_training_dataset_available": false,
+    "why_not": "No dataset in this project ties a thermal frame, a vibration window, and an acoustic clip to the same physical machine at the same timestamp. Each modality's dataset was sourced and prepared independently in its own ML V1 task (see models/thermal, models/vibration, models/acoustic task-definition docs) precisely because no shared multimodal source existed."
+  },
+
+  "fusion_logic_candidates_evaluated": {
+    "candidate_1_rule_based_evidence_fusion": {
+      "description": "Fixed IF-THEN rules over modality evidence (e.g. 'if any 2 modalities report high-confidence anomaly, escalate to warning').",
+      "pros": "Fully transparent, needs zero training data, trivially auditable.",
+      "cons": "Coarse; doesn't distinguish a barely-anomalous reading from a strongly-anomalous one within a rule branch.",
+      "verdict": "Viable V1 fallback, but Candidate 2 strictly generalizes it."
+    },
+    "candidate_2_weighted_evidence_fusion": {
+      "description": "A confidence- and reliability-weighted average of per-modality anomaly_strength values, computed only over AVAILABLE and ACCEPTED (non-suppressed) modality evidence.",
+      "pros": "Directly generalizes candidate 1 (a rule is a weight of 0 or 1); mirrors the EXISTING deterministic FusionEngine's own severity-averaging and coverage-based confidence pattern (app/fusion/engine.py); requires no training data; naturally handles missing/suppressed modalities by zero-weighting them (see fusion_evidence_schema.json and fusion_architecture_design.md for the exact formula).",
+      "cons": "Weights/formula must be documented and justified, not tuned to a metric that doesn't exist.",
+      "verdict": "SELECTED for Multimodal Fusion V1."
+    },
+    "candidate_3_shallow_meta_classifier": {
+      "description": "Logistic Regression (or similar) trained on [modality outputs] -> [multimodal machine-health label].",
+      "pros": "Could learn non-uniform, data-driven weighting if labeled synchronized data existed.",
+      "cons": "Requires exactly the synchronized training dataset this task confirmed does NOT exist.",
+      "verdict": "NOT attempted in V1 - explicitly deferred until/unless a real synchronized multimodal dataset becomes available."
+    },
+    "candidate_4_small_neural_fusion_network": {
+      "description": "A small neural network taking modality outputs/embeddings as input, trained end-to-end.",
+      "pros": "Could in principle learn richer non-linear interactions.",
+      "cons": "Same missing-dataset problem as candidate 3, at higher data-hunger and lower interpretability - the worst combination for a V1 baseline given the current label problem.",
+      "verdict": "NOT attempted in V1, and not recommended even if labeled data appears until candidates 2/3 are validated first."
+    }
+  },
+  "selected_fusion_logic": "candidate_2_weighted_evidence_fusion",
+
+  "deterministic_engine_relationship": {
+    "principle": "ML fusion does NOT replace app.fusion.engine.FusionEngine. It runs alongside it, consuming the SAME per-modality ML evidence already produced by each modality's own confidence gate (thermal/vibration/acoustic ml_model.py + confidence_gate.py), and produces a SEPARATE ml_fusion_* evidence block presented next to (not overwriting) the deterministic health_score/status.",
+    "role_in_v1": "supplementary_evidence",
+    "future_options_not_decided_here": [
+      "ML fusion could eventually be promoted to a separate, independently-displayed 'ML health estimate' alongside the deterministic one.",
+      "A specific deterministic component could eventually be replaced by a validated ML fusion result, but only after real synchronized validation data exists and the replacement is separately proposed and reviewed.",
+      "This task makes neither decision - both are explicitly out of scope per the task's own instruction."
+    ]
+  },
+
+  "missing_modality_behavior": {
+    "principle": "Identical in spirit to the existing deterministic engine's missing_modalities handling: ML fusion never fabricates a missing modality's evidence, and computes its weighted average only over modalities that are BOTH present AND accepted (non-suppressed) by their own confidence gate.",
+    "cases": {
+      "thermal_only": "ml_fusion_severity = thermal's own anomaly_strength; ml_fusion_confidence scaled down (see confidence_propagation) to reflect single-modality coverage.",
+      "vibration_only": "Same pattern using vibration's anomaly_strength alone.",
+      "acoustic_only": "Same pattern using acoustic's anomaly_strength alone.",
+      "thermal_plus_vibration": "Weighted average of the two available modalities' evidence; acoustic contributes zero weight (absent, not zero-anomaly).",
+      "thermal_plus_acoustic": "Weighted average of the two; vibration contributes zero weight.",
+      "vibration_plus_acoustic": "Weighted average of the two; thermal contributes zero weight.",
+      "all_three": "Full weighted average across all three, each weighted by its own confidence and gated by its own reliability.",
+      "zero_available_or_all_suppressed": "ml_fusion_severity = null, ml_fusion_reliability = 'unavailable' - fusion NEVER invents a value when it has nothing to combine."
+    }
+  },
+
+  "confidence_propagation": {
+    "principle": "A modality's evidence contributes to the fused result in proportion to its OWN reported confidence, and contributes ZERO weight if its own confidence gate marked it 'low' (suppressed) or 'unavailable' (missing/failed) - a suppressed or missing modality is never treated as equally strong evidence as a high-confidence one.",
+    "formula": "See fusion_architecture_design.md section 'Confidence propagation - exact formula'. Summary: weight_m = confidence_m if reliability_m == 'high' else 0; fused_severity = sum(weight_m * anomaly_strength_m) / sum(weight_m) over modalities with weight_m > 0, else null; fused_confidence = sum(weight_m) / 3 (mirrors the deterministic engine's own coverage-based confidence = len(calibrated)/len(ALL_MODALITIES), generalized to weight by per-modality ML confidence rather than simple presence).",
+    "justification": "This is not an arbitrary formula - it is a direct generalization of the pattern already implemented in app/fusion/engine.py (uniform-weighted severity averaging + coverage-based confidence), extended to use each modality's own already-computed ML confidence as the weight instead of a uniform 1/N weight, and to zero out modalities whose own confidence gate rejected them."
+  },
+
+  "demo_scenario_design": {
+    "principle": "DEMO MODE - DATASET-DRIVEN SIMULATION stays visible and unchanged, per every prior modality task's convention. The multimodal fusion demo does NOT claim thermal+vibration+acoustic evidence in one demo session come from the same physical machine - it explicitly labels each modality's evidence with its own independent source file, exactly as today's per-modality demo telemetry already does.",
+    "flow": "Machine -> {thermal_evidence, vibration_evidence, acoustic_evidence} (each independently sourced, independently confidence-gated) -> ML evidence fusion (candidate_2_weighted_evidence_fusion) -> combined WITH (not replacing) the deterministic health engine's own evidence -> one final machine-health view that keeps both the deterministic status AND the supplementary ml_fusion_* fields visible.",
+    "scenarios_to_demonstrate": [
+      "All three modalities present, all high confidence, mixed severity (e.g. thermal high-confidence normal, vibration high-confidence severe, acoustic high-confidence anomaly) - shows the weighted average pulling toward the anomalous readings.",
+      "All three present, one suppressed (e.g. acoustic low-confidence) - shows the suppressed modality contributing zero weight, not being treated as equal evidence.",
+      "Only one or two modalities present (missing_modalities non-empty) - shows fusion confidence scaling down with coverage, never fabricating the missing modality.",
+      "Zero modalities available/accepted - shows fusion honestly reporting 'unavailable' rather than a fabricated value."
+    ]
+  },
+
+  "deliverables_produced_by_this_task": [
+    "models/fusion/fusion_task_definition.json (this file)",
+    "models/fusion/fusion_evidence_schema.json",
+    "models/fusion/fusion_architecture_design.md",
+    "scripts/fusion_evidence_fusion_demo.py (offline, non-runtime sanity-check script for the weighted-fusion formula across the four demo scenarios above)"
+  ],
+
+  "explicitly_not_done_in_this_task": [
+    "No fusion model was trained.",
+    "No synchronized multimodal training dataset was fabricated.",
+    "No production runtime file (demo_runner, WebSocket telemetry, dashboard, app/fusion/engine.py) was modified.",
+    "No replacement decision for any deterministic engine component was made."
+  ]
+}

@@ -1,0 +1,1243 @@
+{
+  "model": "random_forest (full 10-feature, vibration-v1)",
+  "trajectory_length": 2156,
+  "oscillation_check": {
+    "method": "A prediction change is a 'flip' if the predicted class reverts to the pre-change class within 10 files (suggests noise); a 'sustained transition' if it does not (suggests a real state change).",
+    "flips": 120,
+    "sustained_transitions": 30,
+    "verdict": "WARNING: flips outnumber sustained transitions"
+  },
+  "progression_check": {
+    "coarse_thirds_majority_class": [
+      "degrading",
+      "degrading",
+      "degrading"
+    ],
+    "coarse_thirds_note": "Splitting the run into just 3 equal-size thirds is too blunt: 'degrading' spans ~1678/2156 files (78%) so it can dominate the majority vote in every third even when the underlying trend is correct. See fine_150_file_chunks for the real shape.",
+    "fine_150_file_chunks": [
+      {
+        "file_range": [
+          0,
+          149
+        ],
+        "majority_predicted": "healthy",
+        "class_fractions": {
+          "healthy": 0.9933333333333333,
+          "degrading": 0.006666666666666667
+        }
+      },
+      {
+        "file_range": [
+          150,
+          299
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "healthy": 0.04,
+          "degrading": 0.96
+        }
+      },
+      {
+        "file_range": [
+          300,
+          449
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 1.0
+        }
+      },
+      {
+        "file_range": [
+          450,
+          599
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 1.0
+        }
+      },
+      {
+        "file_range": [
+          600,
+          749
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 0.9933333333333333,
+          "severe": 0.006666666666666667
+        }
+      },
+      {
+        "file_range": [
+          750,
+          899
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 0.9933333333333333,
+          "severe": 0.006666666666666667
+        }
+      },
+      {
+        "file_range": [
+          900,
+          1049
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 0.9733333333333334,
+          "severe": 0.02666666666666667
+        }
+      },
+      {
+        "file_range": [
+          1050,
+          1199
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 0.96,
+          "severe": 0.04
+        }
+      },
+      {
+        "file_range": [
+          1200,
+          1349
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 0.9866666666666667,
+          "severe": 0.013333333333333334
+        }
+      },
+      {
+        "file_range": [
+          1350,
+          1499
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 0.96,
+          "severe": 0.04
+        }
+      },
+      {
+        "file_range": [
+          1500,
+          1649
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 0.9266666666666666,
+          "severe": 0.07333333333333333
+        }
+      },
+      {
+        "file_range": [
+          1650,
+          1799
+        ],
+        "majority_predicted": "degrading",
+        "class_fractions": {
+          "degrading": 0.9466666666666667,
+          "severe": 0.05333333333333334
+        }
+      },
+      {
+        "file_range": [
+          1800,
+          1949
+        ],
+        "majority_predicted": "severe",
+        "class_fractions": {
+          "degrading": 0.22,
+          "severe": 0.78
+        }
+      },
+      {
+        "file_range": [
+          1950,
+          2099
+        ],
+        "majority_predicted": "severe",
+        "class_fractions": {
+          "degrading": 0.18,
+          "severe": 0.82
+        }
+      },
+      {
+        "file_range": [
+          2100,
+          2155
+        ],
+        "majority_predicted": "severe",
+        "class_fractions": {
+          "degrading": 0.21428571428571427,
+          "severe": 0.7857142857142857
+        }
+      }
+    ],
+    "fine_chunks_verdict": "healthy dominates the first chunk(s), degrading dominates the middle, severe's share rises through the later chunks and dominates by the end - matches the expected progression at this finer granularity, even though the coarse 3-bucket view does not."
+  },
+  "confidence_near_transitions": {
+    "num_derived_label_transitions": 150,
+    "window_size_files": 10,
+    "mean_confidence_near_transitions": 0.9859350000000002,
+    "mean_confidence_away_from_transitions": 0.9984546136534134,
+    "interpretation": "Lower confidence near transitions than elsewhere would indicate the model is appropriately less certain during genuine state changes; comparable or higher confidence near transitions would indicate the model does not detect them as harder cases.",
+    "per_transition_detail": [
+      {
+        "transition_index": 109,
+        "from_label": "healthy",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.976,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 110,
+        "from_label": "degrading",
+        "to_label": "healthy",
+        "mean_confidence_in_window": 0.9760000000000002,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 156,
+        "from_label": "healthy",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9995,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 657,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99475,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 658,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99475,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 753,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9932500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 754,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9932500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 904,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99875,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 905,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99875,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 956,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9945,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 957,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99025,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 966,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.98925,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 967,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9945,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1002,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9984999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1003,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9984999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1050,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9950000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1051,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9950000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1158,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99475,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1160,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9945,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1163,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9945,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1164,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9945,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1175,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9932500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1176,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99375,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1193,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9969999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1194,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9970000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1338,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9835,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1340,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9835,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1406,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1407,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1437,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99275,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1438,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99275,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1468,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9877500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1470,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9877500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1487,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9655000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1488,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9655000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1492,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9655000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1493,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9655000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1510,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.993,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1511,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.993,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1534,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9974999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1535,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9957499999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1544,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.98675,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1545,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9872500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1549,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9835,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1550,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9832500000000002,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1557,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9844999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1558,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.985,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1559,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.985,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1560,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99475,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1565,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9949999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1566,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9949999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1582,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99075,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1583,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99075,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1610,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.976,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1611,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.976,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1631,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99175,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1632,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99175,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1635,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99175,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1636,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99175,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1656,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9807500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1658,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9807500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1683,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.98925,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1684,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.98925,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1754,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99725,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1755,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99725,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1756,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99725,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1757,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99725,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1761,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99275,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1762,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99275,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1769,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.993,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1770,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9930000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1795,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.994,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1796,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.994,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1800,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9867500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1801,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9867500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1804,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9862500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1805,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9800000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1807,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9772500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1808,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9770000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1809,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9772500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1810,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9762500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1812,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9799999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1813,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9799999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1814,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9799999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1815,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9800000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1817,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9800000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1818,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9882500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1819,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9882500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1836,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1837,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1838,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1839,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1840,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1842,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9977500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1850,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9967499999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1851,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9967499999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1855,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9967499999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1856,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9967500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1869,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1870,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1871,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1872,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1874,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1875,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1877,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1878,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99925,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1923,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1924,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1930,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9894999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1936,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9802500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1937,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9802500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1939,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9775,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1941,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9775,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1942,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9782500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1943,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9782500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1944,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9782499999999998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1950,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.98325,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1952,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9854999999999998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1954,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9912499999999997,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1958,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9789999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1959,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.97,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1961,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.97,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1962,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.97,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1964,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.969,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1965,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9709999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1966,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.97075,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1969,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9722500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1973,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.974,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1974,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.974,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1976,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9882500000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1981,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1983,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.99875,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1991,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.99825,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 1992,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9977499999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2001,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9977499999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2002,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.998,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2072,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9897499999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2073,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9897499999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2091,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9652499999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2094,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.96225,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2098,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9494999999999999,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2102,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.94275,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2103,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9495000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2109,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9375,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2110,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9475,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2112,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9560000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2114,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9560000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2115,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9572500000000002,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2118,
+        "from_label": "severe",
+        "to_label": "degrading",
+        "mean_confidence_in_window": 0.9665000000000001,
+        "agreement_with_derived_label_in_window": 1.0
+      },
+      {
+        "transition_index": 2119,
+        "from_label": "degrading",
+        "to_label": "severe",
+        "mean_confidence_in_window": 0.9680000000000002,
+        "agreement_with_derived_label_in_window": 1.0
+      }
+    ]
+  }
+}

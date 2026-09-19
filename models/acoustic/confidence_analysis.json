@@ -1,0 +1,287 @@
+{
+  "model": "logistic_regression (acoustic-v1)",
+  "test_count": 537,
+  "default_decision_boundary": 0.5,
+  "confidence_definition": "max(p_anomaly, 1 - p_anomaly) - confidence in whichever class was predicted",
+  "confidence_vs_correctness": {
+    "mean_confidence_correct": 0.959163824347486,
+    "mean_confidence_incorrect": 0.792418768693939,
+    "median_confidence_correct": 0.9973383307485879,
+    "median_confidence_incorrect": 0.8370301777318916,
+    "n_correct": 515,
+    "n_incorrect": 22
+  },
+  "calibration": {
+    "brier_score": 0.03566081431585941,
+    "brier_score_note": "Lower is better; 0=perfect, 0.25=uninformative-coin-flip baseline for balanced classes (this dataset is imbalanced ~11:1, so compare cautiously). Computed directly - not assumed.",
+    "expected_calibration_error": 0.016536615553643087,
+    "ece_bins": [
+      {
+        "bin_range": [
+          0.5,
+          0.55
+        ],
+        "count": 6,
+        "mean_confidence": 0.5334393496503282,
+        "observed_accuracy": 0.6666666666666666,
+        "gap": 0.1332273170163384
+      },
+      {
+        "bin_range": [
+          0.55,
+          0.6
+        ],
+        "count": 6,
+        "mean_confidence": 0.5753552210606351,
+        "observed_accuracy": 0.8333333333333334,
+        "gap": 0.2579781122726983
+      },
+      {
+        "bin_range": [
+          0.6,
+          0.65
+        ],
+        "count": 7,
+        "mean_confidence": 0.6303950749216132,
+        "observed_accuracy": 0.5714285714285714,
+        "gap": 0.05896650349304178
+      },
+      {
+        "bin_range": [
+          0.65,
+          0.7
+        ],
+        "count": 7,
+        "mean_confidence": 0.6727806330270656,
+        "observed_accuracy": 0.8571428571428571,
+        "gap": 0.1843622241157915
+      },
+      {
+        "bin_range": [
+          0.7,
+          0.75
+        ],
+        "count": 10,
+        "mean_confidence": 0.7218371741053555,
+        "observed_accuracy": 0.7,
+        "gap": 0.021837174105355572
+      },
+      {
+        "bin_range": [
+          0.75,
+          0.8
+        ],
+        "count": 8,
+        "mean_confidence": 0.7627357750238983,
+        "observed_accuracy": 1.0,
+        "gap": 0.23726422497610167
+      },
+      {
+        "bin_range": [
+          0.8,
+          0.8500000000000001
+        ],
+        "count": 9,
+        "mean_confidence": 0.8240331866028938,
+        "observed_accuracy": 0.8888888888888888,
+        "gap": 0.06485570228599502
+      },
+      {
+        "bin_range": [
+          0.8500000000000001,
+          0.9
+        ],
+        "count": 24,
+        "mean_confidence": 0.8784136729787541,
+        "observed_accuracy": 0.8333333333333334,
+        "gap": 0.045080339645420686
+      },
+      {
+        "bin_range": [
+          0.9,
+          0.95
+        ],
+        "count": 43,
+        "mean_confidence": 0.9274603072996591,
+        "observed_accuracy": 0.9302325581395349,
+        "gap": 0.002772250839875756
+      },
+      {
+        "bin_range": [
+          0.95,
+          1.0
+        ],
+        "count": 417,
+        "mean_confidence": 0.9926338299382954,
+        "observed_accuracy": 0.9904076738609112,
+        "gap": 0.0022261560773841893
+      }
+    ],
+    "calibration_verdict": "Computed via a real 10-bin ECE + Brier score on the test set (see values above) - this is NOT a claim that the model is well-calibrated merely because it outputs probabilities; read the ece/brier numbers themselves to judge that."
+  },
+  "suppressed_true_anomalies_by_threshold": {
+    "0.5": 0,
+    "0.6": 0,
+    "0.7": 1,
+    "0.8": 4,
+    "0.9": 9,
+    "0.95": 14,
+    "0.99": 23
+  },
+  "thresholds": [
+    {
+      "threshold": 0.5,
+      "accepted": 537,
+      "rejected": 0,
+      "coverage": 1.0,
+      "accuracy_on_accepted": 0.9590316573556797,
+      "macro_f1_on_accepted": 0.8828905630452022,
+      "anomaly_precision": 0.6612903225806451,
+      "anomaly_recall": 0.9761904761904762,
+      "confusion_matrix_on_accepted": [
+        [
+          474,
+          21
+        ],
+        [
+          1,
+          41
+        ]
+      ],
+      "false_negative_count": 1,
+      "false_positive_count": 21
+    },
+    {
+      "threshold": 0.6,
+      "accepted": 525,
+      "rejected": 12,
+      "coverage": 0.9776536312849162,
+      "accuracy_on_accepted": 0.9638095238095238,
+      "macro_f1_on_accepted": 0.8959300566516083,
+      "anomaly_precision": 0.6949152542372882,
+      "anomaly_recall": 0.9761904761904762,
+      "confusion_matrix_on_accepted": [
+        [
+          465,
+          18
+        ],
+        [
+          1,
+          41
+        ]
+      ],
+      "false_negative_count": 1,
+      "false_positive_count": 18
+    },
+    {
+      "threshold": 0.7,
+      "accepted": 511,
+      "rejected": 26,
+      "coverage": 0.9515828677839852,
+      "accuracy_on_accepted": 0.9706457925636007,
+      "macro_f1_on_accepted": 0.9129620166922159,
+      "anomaly_precision": 0.7407407407407407,
+      "anomaly_recall": 0.975609756097561,
+      "confusion_matrix_on_accepted": [
+        [
+          456,
+          14
+        ],
+        [
+          1,
+          40
+        ]
+      ],
+      "false_negative_count": 1,
+      "false_positive_count": 14
+    },
+    {
+      "threshold": 0.8,
+      "accepted": 493,
+      "rejected": 44,
+      "coverage": 0.9180633147113594,
+      "accuracy_on_accepted": 0.9756592292089249,
+      "macro_f1_on_accepted": 0.9251366673415671,
+      "anomaly_precision": 0.76,
+      "anomaly_recall": 1.0,
+      "confusion_matrix_on_accepted": [
+        [
+          443,
+          12
+        ],
+        [
+          0,
+          38
+        ]
+      ],
+      "false_negative_count": 0,
+      "false_positive_count": 12
+    },
+    {
+      "threshold": 0.9,
+      "accepted": 460,
+      "rejected": 77,
+      "coverage": 0.8566108007448789,
+      "accuracy_on_accepted": 0.9847826086956522,
+      "macro_f1_on_accepted": 0.9479225631155892,
+      "anomaly_precision": 0.825,
+      "anomaly_recall": 1.0,
+      "confusion_matrix_on_accepted": [
+        [
+          420,
+          7
+        ],
+        [
+          0,
+          33
+        ]
+      ],
+      "false_negative_count": 0,
+      "false_positive_count": 7
+    },
+    {
+      "threshold": 0.95,
+      "accepted": 417,
+      "rejected": 120,
+      "coverage": 0.776536312849162,
+      "accuracy_on_accepted": 0.9904076738609112,
+      "macro_f1_on_accepted": 0.9640826873385013,
+      "anomaly_precision": 0.875,
+      "anomaly_recall": 1.0,
+      "confusion_matrix_on_accepted": [
+        [
+          385,
+          4
+        ],
+        [
+          0,
+          28
+        ]
+      ],
+      "false_negative_count": 0,
+      "false_positive_count": 4
+    },
+    {
+      "threshold": 0.99,
+      "accepted": 313,
+      "rejected": 224,
+      "coverage": 0.5828677839851024,
+      "accuracy_on_accepted": 0.9936102236421726,
+      "macro_f1_on_accepted": 0.9732935153583617,
+      "anomaly_precision": 0.9047619047619048,
+      "anomaly_recall": 1.0,
+      "confusion_matrix_on_accepted": [
+        [
+          292,
+          2
+        ],
+        [
+          0,
+          19
+        ]
+      ],
+      "false_negative_count": 0,
+      "false_positive_count": 2
+    }
+  ]
+}

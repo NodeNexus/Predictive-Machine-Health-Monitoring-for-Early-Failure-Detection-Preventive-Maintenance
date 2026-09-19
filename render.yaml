@@ -1,0 +1,23 @@
+# Render Blueprint for the IDEA LAB BACKEND ONLY (a Python FastAPI Web
+# Service - REST + WebSocket + thermal video streaming). The frontend is
+# deployed separately later; see RENDER_DEPLOY.md.
+#
+# No `disk:` / persistent volume is attached: that requires a paid Render
+# instance type, which this blueprint deliberately avoids. SQLite therefore
+# lives on the free instance's local ephemeral disk - see the "SQLite
+# persistence" section in RENDER_DEPLOY.md for what that means in practice.
+services:
+  - type: web
+    name: idealab-backend
+    env: python
+    plan: free
+    buildCommand: "pip install --index-url https://download.pytorch.org/whl/cpu torch==2.14.0 torchvision==0.29.0 && pip install -r backend/requirements.txt"
+    startCommand: "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.14"
+      - key: IDEALAB_ENVIRONMENT
+        value: production
+      - key: IDEALAB_CORS_ORIGINS
+        sync: false # set after the frontend is deployed - see RENDER_DEPLOY.md

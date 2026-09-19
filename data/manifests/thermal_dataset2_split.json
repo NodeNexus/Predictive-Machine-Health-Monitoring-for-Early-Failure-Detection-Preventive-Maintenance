@@ -1,0 +1,4067 @@
+{
+  "generated_at": "2026-09-16T22:03:05.688709",
+  "seed": 42,
+  "methodology": "Per-class dHash near-duplicate connected-components (Hamming <= 2), groups assigned to train/validation/test via a seeded greedy per-class-balanced assignment targeting 70/15/15, PLUS the same independent leak-repair safety-net check as Dataset 1 (0 image(s) demoted). File-modification timestamps were checked and found unreliable (inconsistent with filename order, irregular gaps - likely a RAR-extraction artifact) and were NOT used for grouping.",
+  "record_count": 369,
+  "records": [
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\291.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\291.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\292.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\299.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\293.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\299.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\297.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\299.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\298.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\299.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\299.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\299.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\294.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\319.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\306.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\319.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\308.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\319.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\319.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\319.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\295.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\296.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\300.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\301.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\307.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\316.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\317.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\320.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\324.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\326.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\324.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 10
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\302.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\302.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\303.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\303.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\304.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\304.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\305.bmp",
+      "split": "validation",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\305.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\309.bmp",
+      "split": "validation",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\310.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\310.bmp",
+      "split": "validation",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\310.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\311.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\312.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\312.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\312.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\313.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\313.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\314.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\314.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\315.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\315.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\318.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\318.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\321.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\321.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\322.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\322.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\323.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\323.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\325.bmp",
+      "split": "train",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\325.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\327.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\328.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&B50\\328.bmp",
+      "split": "test",
+      "class": "A&B50",
+      "group_id": "A&B50_neardup_group_A&B50\\328.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+B, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\099.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\100.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\102.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\103.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\104.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\107.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\108.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\109.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\110.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\111.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\113.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\114.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\115.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\116.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\118.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\119.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\120.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\121.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\122.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\123.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\124.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\125.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\126.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\127.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\128.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\130.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\130.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 26
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\101.bmp",
+      "split": "validation",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\101.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\106.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\106.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\112.bmp",
+      "split": "test",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\112.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\117.bmp",
+      "split": "test",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\117.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B10\\129.bmp",
+      "split": "train",
+      "class": "A&C&B10",
+      "group_id": "A&C&B10_neardup_group_A&C&B10\\129.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 10% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\214.bmp",
+      "split": "test",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\214.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\215.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\215.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\216.bmp",
+      "split": "validation",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\216.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\217.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\218.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\219.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\220.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\221.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\222.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\226.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\227.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\228.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\229.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\230.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\231.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\232.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\233.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\234.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\236.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\240.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\242.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\243.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\244.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\245.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\247.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\248.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\249.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\250.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\251.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\252.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\253.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\248.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 28
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\223.bmp",
+      "split": "validation",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\254.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\225.bmp",
+      "split": "validation",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\254.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\254.bmp",
+      "split": "validation",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\254.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\224.bmp",
+      "split": "test",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\224.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\235.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\238.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\237.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\238.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\238.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\238.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\239.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\239.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\241.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\241.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\246.bmp",
+      "split": "test",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\246.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C&B30\\255.bmp",
+      "split": "train",
+      "class": "A&C&B30",
+      "group_id": "A&C&B30_neardup_group_A&C&B30\\255.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, all 3 phases, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\066.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\067.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\068.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\069.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\070.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\071.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\072.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\073.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\074.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\075.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\076.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\077.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\078.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\079.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\080.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\081.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\082.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\083.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\084.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\085.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\086.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\087.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\088.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\089.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\090.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\091.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\092.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\093.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\094.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\095.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C10\\096.bmp",
+      "split": "train",
+      "class": "A&C10",
+      "group_id": "A&C10_neardup_group_A&C10\\090.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 10% severity",
+        "near_dup_group_size": 31
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\173.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\174.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\175.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\176.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\177.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\178.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\179.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\180.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\181.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\182.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\183.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\184.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\185.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\186.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\187.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\188.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\189.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\190.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\191.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\192.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\193.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\195.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\196.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\197.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\198.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\199.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\200.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\201.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\202.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\203.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\204.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\205.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\206.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\207.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\208.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\209.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\210.bmp",
+      "split": "train",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\206.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 37
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A&C30\\194.bmp",
+      "split": "test",
+      "class": "A&C30",
+      "group_id": "A&C30_neardup_group_A&C30\\194.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phases A+C, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\032.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\033.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\034.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\035.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\036.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\037.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\038.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\039.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\040.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\041.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\042.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\043.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\044.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\045.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\046.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\047.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\048.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\050.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\051.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\052.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\053.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\054.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\055.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\056.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\057.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\058.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\059.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\060.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\061.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\062.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\063.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\064.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\065.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\051.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 33
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A10\\049.bmp",
+      "split": "train",
+      "class": "A10",
+      "group_id": "A10_neardup_group_A10\\049.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 10% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\133.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\134.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\135.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\136.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\137.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\138.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\139.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\140.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\141.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\142.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\143.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\144.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\145.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\146.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\147.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\148.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\149.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\150.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\151.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\152.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\153.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\155.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\156.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\157.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\158.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\159.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\160.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\161.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\162.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\163.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\165.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\166.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\167.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\168.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\169.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\161.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 35
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\154.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\154.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A30\\164.bmp",
+      "split": "train",
+      "class": "A30",
+      "group_id": "A30_neardup_group_A30\\164.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 30% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\256.bmp",
+      "split": "validation",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\256.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\257.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\257.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\258.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\258.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\259.bmp",
+      "split": "test",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\273.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\273.bmp",
+      "split": "test",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\273.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\260.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\260.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\261.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\261.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\262.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\274.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\263.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\274.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\274.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\274.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\264.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\289.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 9
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\265.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\289.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 9
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\266.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\289.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 9
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\268.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\289.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 9
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\275.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\289.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 9
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\276.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\289.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 9
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\282.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\289.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 9
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\286.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\289.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 9
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\289.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\289.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 9
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\267.bmp",
+      "split": "validation",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\267.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\269.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\269.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\270.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\283.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\277.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\283.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\279.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\283.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\283.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\283.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\271.bmp",
+      "split": "validation",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\271.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\272.bmp",
+      "split": "test",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\272.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\278.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\281.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\281.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\281.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\280.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\284.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\284.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\284.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\285.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\285.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\287.bmp",
+      "split": "test",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\287.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\288.bmp",
+      "split": "test",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\288.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\A50\\290.bmp",
+      "split": "train",
+      "class": "A50",
+      "group_id": "A50_neardup_group_A50\\290.bmp",
+      "source_metadata": {
+        "label_meaning": "Stator short-circuit, phase A, 50% severity",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f068.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f068.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f069.bmp",
+      "split": "test",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f069.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f070.bmp",
+      "split": "validation",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f070.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f071.bmp",
+      "split": "validation",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f071.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f072.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f072.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f073.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f092.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f091.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f092.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f092.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f092.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f074.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f084.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f075.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f084.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f077.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f084.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f078.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f084.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f084.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f084.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 5
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f076.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f081.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f081.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f081.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f079.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f080.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f080.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f080.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f082.bmp",
+      "split": "test",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f082.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f083.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f083.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f085.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f085.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f086.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f086.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f087.bmp",
+      "split": "test",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f087.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f088.bmp",
+      "split": "test",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f088.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f089.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f089.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f090.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f090.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f093.bmp",
+      "split": "validation",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f095.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f095.bmp",
+      "split": "validation",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f095.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Fan\\f094.bmp",
+      "split": "train",
+      "class": "Fan",
+      "group_id": "Fan_neardup_group_Fan\\f094.bmp",
+      "source_metadata": {
+        "label_meaning": "Cooling-fan failure",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\002.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\019.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\004.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\019.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\008.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\019.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\019.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\019.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\003.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\003.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\005.bmp",
+      "split": "validation",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\005.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\006.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\006.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\007.bmp",
+      "split": "validation",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\007.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\009.bmp",
+      "split": "test",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\009.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\010.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\013.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\011.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\013.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\013.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\013.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\012.bmp",
+      "split": "test",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\012.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\014.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\014.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\015.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\015.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\016.bmp",
+      "split": "test",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\016.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\017.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\017.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\018.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\018.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\020.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\020.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\021.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\021.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\022.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\022.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\023.bmp",
+      "split": "test",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\023.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\024.bmp",
+      "split": "validation",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\024.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\025.bmp",
+      "split": "validation",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\025.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Noload\\026.bmp",
+      "split": "train",
+      "class": "Noload",
+      "group_id": "Noload_neardup_group_Noload\\026.bmp",
+      "source_metadata": {
+        "label_meaning": "Healthy, no load",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r030.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r030.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r031.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r031.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r032.bmp",
+      "split": "test",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r041.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r034.bmp",
+      "split": "test",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r041.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r041.bmp",
+      "split": "test",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r041.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 3
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r033.bmp",
+      "split": "test",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r045.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r045.bmp",
+      "split": "test",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r045.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r035.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r058.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 7
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r043.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r058.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 7
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r044.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r058.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 7
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r050.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r058.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 7
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r051.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r058.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 7
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r055.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r058.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 7
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r058.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r058.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 7
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r036.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r048.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r037.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r048.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r039.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r048.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r048.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r048.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 4
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r038.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r038.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r040.bmp",
+      "split": "validation",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r040.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r042.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r042.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r046.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r046.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r047.bmp",
+      "split": "validation",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r047.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r049.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r049.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r052.bmp",
+      "split": "validation",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r052.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r053.bmp",
+      "split": "validation",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r053.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r054.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r059.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r059.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r059.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 2
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r056.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r056.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    },
+    {
+      "dataset": "ir_motor_bmp",
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds2\\IR-Motor-bmp\\Rotor-0\\r057.bmp",
+      "split": "train",
+      "class": "Rotor-0",
+      "group_id": "Rotor-0_neardup_group_Rotor-0\\r057.bmp",
+      "source_metadata": {
+        "label_meaning": "Stuck-rotor fault",
+        "near_dup_group_size": 1
+      }
+    }
+  ]
+}

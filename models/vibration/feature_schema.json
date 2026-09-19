@@ -1,0 +1,10 @@
+{
+  "feature_order": [
+    "rms", "std", "crest_factor", "kurtosis", "skewness",
+    "peak", "peak_to_peak", "dominant_frequency", "spectral_centroid", "spectral_bandwidth"
+  ],
+  "feature_source": "app.pipelines.vibration.features.extract_vibration_features (the existing, already-validated vibration signal-processing pipeline) - no new feature engineering was introduced for this model.",
+  "input_unit_of_analysis": "One IMS file (20,480 samples, 20kHz sample rate, ~1.024s snapshot) = one feature vector. No sub-windowing.",
+  "preprocessing": "None for the exported model (tree-based, scale-invariant). A StandardScaler is fit and saved alongside the model only for the logistic_regression baseline, which was not selected as best.",
+  "caveat": "rms and kurtosis are also the exact quantities the training labels were derived from - see models/vibration/model_metadata.json's IMPORTANT_tautology_finding before interpreting feature importance as physical causation."
+}

@@ -1,0 +1,68 @@
+{
+  "source_directory": "DATASET/IMS/IMS/1st_test/1st_test",
+  "channel": 4,
+  "channel_meaning": "Bearing 3, channel 1 of its pair (per IMS README: Bearing 3 = Ch5&6, 1-indexed; channel=4 here is 0-indexed = Ch5)",
+  "documented_failure": "IMS vendor README states only: 'At the end of the test-to-failure experiment, inner race defect occurred in bearing 3 and roller element defect in bearing 4.' No per-file label, no severity scale, no timestamp of onset is provided by the dataset.",
+
+  "candidate_targets_evaluated": {
+    "option_a_binary_normal_degraded": {
+      "description": "healthy vs degraded, single z-score threshold on RMS relative to an early baseline",
+      "defensibility": "High - a single, sharp, well-evidenced step-change exists at file ~156 (RMS z-score jumps from ~2 to ~38 within a handful of files). Simple, reproducible.",
+      "limitation": "Loses the distinction between 'developing fault, keep monitoring' and 'severe, act now' - the single most operationally useful distinction for predictive maintenance.",
+      "verdict": "Defensible, but discards real information the data actually supports."
+    },
+    "option_b_three_class_healthy_degrading_severe": {
+      "description": "healthy / degrading / severe, using two independent z-scored signals (RMS for the healthy cutoff, kurtosis for the severe cutoff)",
+      "defensibility": "High, but only after rejecting a naive single-signal version - see 'rejected_naive_rule' below. The final rule is grounded in a real, observed physical distinction: RMS saturates almost immediately after fault onset and stops discriminating severity, while kurtosis (impulsiveness) stays near-baseline through the elevated-but-stable plateau and only escalates sharply and increasingly frequently from file ~1900 onward (z-scores of 39, 117, 161 observed vs. a near-baseline 0-8 range for most of the preceding 1700 files) - consistent with the textbook progression of rolling-element bearing spalling (energy rise first, then increasing impulsive impacts as spalling worsens).",
+      "limitation": "The 'severe' label is not a clean monotonic tail - it appears as increasingly frequent intermittent bursts from ~30% through the timeline onward, interleaved with 'degrading' labels, before becoming dominant near the end. This is treated as a real physical characteristic (intermittent impact events before continuous severe degradation), not label noise - but it does mean per-file classification near these transitions is a genuinely harder problem than a single clean boundary.",
+      "verdict": "Selected. Richer, operationally more useful, and defensible from the data's own two-signal structure - not from an arbitrary composite score."
+    },
+    "option_c_continuous_health_index_regression": {
+      "description": "0-100 index, a deterministic rescaling of max(z_rms, z_kurtosis)",
+      "defensibility": "Mathematically valid (same underlying evidence as option B, just not discretized), but MAE/RMSE/R2 against this target only measures how well a model recovers a SELF-CONSISTENT DERIVED INDEX from engineered features - it is not evaluable against any independent ground-truth health measurement, because none exists in this dataset.",
+      "limitation": "Highest risk of being misread as 'the model predicts true machine health' when it actually predicts 'the model predicts the same statistical rule used to label it, from correlated features'.",
+      "verdict": "Computed and included in the manifest (health_index field) for future use, but NOT selected as the primary baseline-model target this task - would require its own dedicated framing to avoid the interpretation risk above."
+    }
+  },
+
+  "rejected_naive_rule": {
+    "description": "First attempt: severity_z = max(z_rms, z_kurtosis), thresholded at 3/10 (reusing this codebase's existing anomaly_z_threshold and fusion severity_z_cap directly).",
+    "why_rejected": "Produced a degenerate distribution when checked against the FULL 2156-file trajectory (not assumed from prior sparse sampling, per this task's instruction): 2000/2156 files (93%) labelled 'severe', 'degrading' left with only 3 single-file transient blips. Root cause: RMS alone drives severity_z past 10 almost immediately after onset and never comes back down, because the healthy baseline's RMS std (0.00074) is extremely tight - any real post-onset RMS value produces an enormous z-score regardless of how far along the actual degradation trajectory really is.",
+    "lesson": "This is the same finding as the earlier IDEA LAB demo-baseline investigation (Phase 7 / the 19-hour-audit fix task): z-scores against an extremely tight baseline saturate almost immediately and stop being informative for GRADUATED severity, even though they remain excellent for a binary healthy/not-healthy signal."
+  },
+
+  "selected_target": "option_b_three_class_healthy_degrading_severe",
+
+  "label_construction_rule": {
+    "statement": "THE IMS DATASET PROVIDES NO PER-FILE GROUND-TRUTH LABEL OF ANY KIND. Every label below is DERIVED by applying a documented statistical rule to the dataset's own engineered features. It must never be described or logged as original dataset ground truth.",
+    "baseline_period": "files [0, 100) - independently re-verified flat/stable in this task's full-trajectory scan (RMS mean=0.1311, std=0.00074; kurtosis mean=3.379, std=0.093)",
+    "rule": "z_rms and z_kurtosis computed against that baseline for every file. healthy: z_rms < 3.0. severe: z_kurtosis >= 10.0 (checked independently of z_rms). degrading: everything else (i.e. z_rms >= 3.0 and z_kurtosis < 10.0).",
+    "thresholds_source": "3.0 matches app.core.config.settings.anomaly_z_threshold; 10.0 matches app.fusion.engine.FusionEngine's severity_z_cap - reused for internal consistency with the rest of IDEA LAB, not tuned to this specific file range.",
+    "resulting_distribution": {"healthy": 155, "degrading": 1678, "severe": 323}
+  },
+
+  "split_strategy": {
+    "description": "Chronological-within-stratum block split (NOT a pure global chronological cut).",
+    "why_pure_chronological_split_was_rejected": "A global 70/15/15 chronological cut was computed and checked before deciding: it placed only 20/323 (6%) severe files in train and 264/323 (82%) in test - severe files are naturally back-loaded in time (real degradation worsens near end-of-life), so a naive global cut would starve training of the rarest, operationally most important class.",
+    "method": "The 2156-file timeline is split into contiguous 20-file blocks (temporal adjacency preserved - no shuffling). Each block is assigned a 'dominant label' (majority vote among its files) purely to decide its stratum; individual files keep their own true derived label regardless. Within each dominant-label stratum, blocks are sorted chronologically and split 70/15/15 (earliest -> train, middle -> validation, latest -> test).",
+    "resulting_distribution": {
+      "train": {"healthy": 119, "degrading": 1199, "severe": 182, "total": 1500},
+      "validation": {"healthy": 20, "degrading": 247, "severe": 53, "total": 320},
+      "test": {"healthy": 16, "degrading": 232, "severe": 88, "total": 336}
+    },
+    "residual_leakage_risk": "Adjacent files immediately across a stratum-internal block boundary (e.g. the last file of a train-assigned block next to the first file of a validation-assigned block from the same stratum) are temporally close and could be mildly correlated - this is a documented, accepted residual risk analogous to the boundary risk in the thermal dataset split (see docs/THERMAL_SPLIT_REPORT.md), not eliminated here given the added complexity of block-level buffering on top of stratification. It affects a small fraction of files at stratum boundaries, not the bulk of the split."
+  },
+
+  "feature_set": [
+    "rms", "std", "crest_factor", "kurtosis", "skewness",
+    "peak", "peak_to_peak", "dominant_frequency", "spectral_centroid", "spectral_bandwidth"
+  ],
+  "feature_set_note": "Drawn entirely from the existing, already-validated app.pipelines.vibration.features.extract_vibration_features output - no new feature engineering, no raw-waveform deep model in this baseline task.",
+
+  "unit_of_analysis": "One IMS file (20,480 samples = 1.024s snapshot at 20kHz) = one sample/observation, matching how the existing demo pipeline already treats these files as natural analysis windows. No sub-windowing was introduced.",
+
+  "manifest_locations": {
+    "trajectory": "data/manifests/vibration_ims_ch4_trajectory.json",
+    "split": "data/manifests/vibration_ml_v1_split.json"
+  }
+}

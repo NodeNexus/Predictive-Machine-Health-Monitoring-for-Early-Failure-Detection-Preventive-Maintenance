@@ -1,0 +1,192 @@
+{
+  "class_names": [
+    "CFL",
+    "CML",
+    "CNL",
+    "HFL",
+    "HML",
+    "HNL"
+  ],
+  "accuracy": 0.7254901960784313,
+  "macro_precision": 0.5378787878787878,
+  "macro_recall": 0.6458333333333334,
+  "macro_f1": 0.5799498746867168,
+  "top1_accuracy": 0.7254901960784313,
+  "top3_accuracy": 0.9607843137254902,
+  "confusion_matrix": [
+    [
+      0,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      7,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      8,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      13,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      9,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      9
+    ]
+  ],
+  "per_class": {
+    "CFL": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 4
+    },
+    "CML": {
+      "precision": 0.6363636363636364,
+      "recall": 0.875,
+      "f1": 0.7368421052631579,
+      "support": 8
+    },
+    "CNL": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 8
+    },
+    "HFL": {
+      "precision": 0.5909090909090909,
+      "recall": 1.0,
+      "f1": 0.7428571428571429,
+      "support": 13
+    },
+    "HML": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 9
+    },
+    "HNL": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 9
+    }
+  },
+  "misclassified": [
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\CFL\\FLIR0595.jpg",
+      "true_class": "CFL",
+      "predicted_class": "CML",
+      "confidence": 0.9780747890472412
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\CFL\\FLIR0596.jpg",
+      "true_class": "CFL",
+      "predicted_class": "CML",
+      "confidence": 0.8632358312606812
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\CFL\\FLIR0597.jpg",
+      "true_class": "CFL",
+      "predicted_class": "CML",
+      "confidence": 0.8641172051429749
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\CFL\\FLIR0598.jpg",
+      "true_class": "CFL",
+      "predicted_class": "CML",
+      "confidence": 0.5523635149002075
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\CML\\FLIR0549.jpg",
+      "true_class": "CML",
+      "predicted_class": "CFL",
+      "confidence": 0.8910735249519348
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\HML\\FLIR0762.jpg",
+      "true_class": "HML",
+      "predicted_class": "HFL",
+      "confidence": 0.7545309066772461
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\HML\\FLIR0763.jpg",
+      "true_class": "HML",
+      "predicted_class": "HFL",
+      "confidence": 0.9356425404548645
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\HML\\FLIR0764.jpg",
+      "true_class": "HML",
+      "predicted_class": "HFL",
+      "confidence": 0.9909906387329102
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\HML\\FLIR0765.jpg",
+      "true_class": "HML",
+      "predicted_class": "HFL",
+      "confidence": 0.9763703346252441
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\HML\\FLIR0766.jpg",
+      "true_class": "HML",
+      "predicted_class": "HFL",
+      "confidence": 0.9820766448974609
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\HML\\FLIR0767.jpg",
+      "true_class": "HML",
+      "predicted_class": "HFL",
+      "confidence": 0.9812507033348083
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\HML\\FLIR0768.jpg",
+      "true_class": "HML",
+      "predicted_class": "HFL",
+      "confidence": 0.9478223919868469
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\HML\\FLIR0769.jpg",
+      "true_class": "HML",
+      "predicted_class": "HFL",
+      "confidence": 0.9777085185050964
+    },
+    {
+      "image_path": "C:\\Users\\VNAV-PC\\Desktop\\MECHANICAL\\_thermal_audit_ds1\\Induction Motor-Thermal Images\\HML\\FLIR0770.jpg",
+      "true_class": "HML",
+      "predicted_class": "HFL",
+      "confidence": 0.9935513734817505
+    }
+  ],
+  "test_count": 51,
+  "avg_inference_seconds": 0.03048838821111941
+}

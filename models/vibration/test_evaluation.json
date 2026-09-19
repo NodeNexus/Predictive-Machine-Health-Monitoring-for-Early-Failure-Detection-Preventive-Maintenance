@@ -1,0 +1,65 @@
+{
+  "model_name": "random_forest",
+  "test_count": 336,
+  "test_macro_f1": 1.0,
+  "test_report": {
+    "healthy": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 16.0
+    },
+    "degrading": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 232.0
+    },
+    "severe": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 88.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 336.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 336.0
+    }
+  },
+  "test_confusion_matrix": [
+    [
+      16,
+      0,
+      0
+    ],
+    [
+      0,
+      232,
+      0
+    ],
+    [
+      0,
+      0,
+      88
+    ]
+  ],
+  "ablation_results_test_macro_f1": {
+    "all_10_features_original": 1.0,
+    "excluding_rms_and_kurtosis_8_features": 0.9684,
+    "spectral_and_skewness_only_4_features_no_amplitude": 0.8567
+  },
+  "temporal_behavior_check": {
+    "method": "Predictions from both the full model and a spectral-only (non-tautological) model were generated across the ENTIRE chronological trajectory (all 2156 files, train+val+test) and compared against the derived labels in 150-file chunks.",
+    "finding": "Both models show a physically coherent temporal progression: healthy (files ~0-150) -> transition to degrading (~150-300) -> sustained degrading with a gradually increasing fraction of severe predictions from ~file 600 onward -> severe becomes dominant near the end (~file 1950+). This matches the expected bearing-spalling narrative (progressive worsening, not random oscillation). The spectral-only model's agreement with the derived label stays above ~90% through most of the trajectory and only drops near the very end (59% in the final 56-file chunk), which is expected since it cannot see the amplitude signal the label partly depends on.",
+    "verdict": "Temporally sensible - not flagged as randomly oscillating."
+  }
+}

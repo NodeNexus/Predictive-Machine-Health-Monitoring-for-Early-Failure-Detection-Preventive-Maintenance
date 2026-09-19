@@ -1,0 +1,25 @@
+{
+  "n_files": 40,
+  "window_seconds": 1.0,
+  "clip_duration_seconds": 10.0,
+  "model_available": true,
+  "deterministic_window_extraction_ms": {
+    "mean_ms": 72.21388750258484,
+    "p95_ms": 10.118280001915963,
+    "max_ms": 2597.9058999801055
+  },
+  "ml_inference_per_clip_ms": {
+    "mean_ms": 55.0335450010607,
+    "p95_ms": 77.09701998246601,
+    "max_ms": 85.64669999759644
+  },
+  "combined_worst_case_ms": {
+    "mean_ms": 127.24743250364554,
+    "p95_ms": 87.12270999967585,
+    "max_ms": 2647.072699968703
+  },
+  "demo_tick_budget_ms_at_speed_1x": 500.0,
+  "effective_deterministic_windows_per_second": 13.847751929491482,
+  "ml_fits_within_tick_budget_p95": true,
+  "note": "ML inference runs ONCE per clip play/loop-around, not once per window (this model's true unit of analysis is the whole clip) - the 'combined worst case' models the rare tick where a file reopen coincides with a window-processing step, to confirm even that doesn't stall the asyncio loop. Measured directly, not extrapolated from thermal/vibration ML."
+}

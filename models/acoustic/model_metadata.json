@@ -1,0 +1,309 @@
+{
+  "model_name": "logistic_regression",
+  "model_version": "acoustic-v1",
+  "dataset": "DATASET/bearing/bearing (DCASE-style domain-generalization bearing acoustic dataset)",
+  "class_names": [
+    "normal",
+    "anomaly"
+  ],
+  "feature_columns": [
+    "rms",
+    "peak_amplitude",
+    "crest_factor",
+    "energy",
+    "dominant_frequency",
+    "spectral_centroid",
+    "spectral_bandwidth",
+    "spectral_rolloff",
+    "spectral_flatness",
+    "top_spectral_peak_frequency",
+    "top_spectral_peak_magnitude",
+    "octave_band_0",
+    "octave_band_1",
+    "octave_band_2",
+    "octave_band_3",
+    "octave_band_4",
+    "octave_band_5",
+    "octave_band_6",
+    "octave_band_7",
+    "octave_band_8",
+    "octave_band_9",
+    "third_octave_band_0",
+    "third_octave_band_1",
+    "third_octave_band_2",
+    "third_octave_band_3",
+    "third_octave_band_4",
+    "third_octave_band_5",
+    "third_octave_band_6",
+    "third_octave_band_7",
+    "third_octave_band_8",
+    "third_octave_band_9",
+    "third_octave_band_10",
+    "third_octave_band_11",
+    "third_octave_band_12",
+    "third_octave_band_13",
+    "third_octave_band_14",
+    "third_octave_band_15",
+    "third_octave_band_16",
+    "third_octave_band_17",
+    "third_octave_band_18",
+    "third_octave_band_19",
+    "third_octave_band_20",
+    "third_octave_band_21",
+    "third_octave_band_22",
+    "third_octave_band_23",
+    "third_octave_band_24",
+    "third_octave_band_25",
+    "third_octave_band_26",
+    "mfcc_0",
+    "mfcc_1",
+    "mfcc_2",
+    "mfcc_3",
+    "mfcc_4",
+    "mfcc_5",
+    "mfcc_6",
+    "mfcc_7",
+    "mfcc_8",
+    "mfcc_9",
+    "mfcc_10",
+    "mfcc_11",
+    "mfcc_12"
+  ],
+  "random_seed": 42,
+  "train_count": 2519,
+  "validation_count": 543,
+  "test_count": 537,
+  "test_macro_f1": 0.8828905630452022,
+  "test_roc_auc": 0.9905723905723905,
+  "test_pr_auc": 0.8856169925463471,
+  "test_report": {
+    "normal": {
+      "precision": 0.9978947368421053,
+      "recall": 0.9575757575757575,
+      "f1-score": 0.977319587628866,
+      "support": 495.0
+    },
+    "anomaly": {
+      "precision": 0.6612903225806451,
+      "recall": 0.9761904761904762,
+      "f1-score": 0.7884615384615384,
+      "support": 42.0
+    },
+    "accuracy": 0.9590316573556797,
+    "macro avg": {
+      "precision": 0.8295925297113752,
+      "recall": 0.9668831168831169,
+      "f1-score": 0.8828905630452022,
+      "support": 537.0
+    },
+    "weighted avg": {
+      "precision": 0.9715681346093654,
+      "recall": 0.9590316573556797,
+      "f1-score": 0.9625485670236,
+      "support": 537.0
+    }
+  },
+  "test_confusion_matrix": [
+    [
+      474,
+      21
+    ],
+    [
+      1,
+      41
+    ]
+  ],
+  "feature_importance": {
+    "rms": 1.7904458626311044,
+    "peak_amplitude": 0.8144293118486458,
+    "crest_factor": 0.6421987213523076,
+    "energy": 0.16624886850512738,
+    "dominant_frequency": 0.45849857136421884,
+    "spectral_centroid": 2.2786467518029347,
+    "spectral_bandwidth": 1.8648583084983903,
+    "spectral_rolloff": 2.7022706201409865,
+    "spectral_flatness": 0.3330986514707093,
+    "top_spectral_peak_frequency": 0.45849857136421884,
+    "top_spectral_peak_magnitude": 1.2717673370286988,
+    "octave_band_0": 1.0551246126757048,
+    "octave_band_1": 1.0766751331918263,
+    "octave_band_2": 0.4368415082596201,
+    "octave_band_3": 0.19044007482168315,
+    "octave_band_4": 0.39952555165557907,
+    "octave_band_5": 0.7396099442179397,
+    "octave_band_6": 1.333765136694576,
+    "octave_band_7": 0.6405407647626316,
+    "octave_band_8": 0.5835857096845412,
+    "octave_band_9": 0.29540854435601216,
+    "third_octave_band_0": 0.5562923775301928,
+    "third_octave_band_1": 1.147385439781799,
+    "third_octave_band_2": 0.1820276824146638,
+    "third_octave_band_3": 0.17001513676240335,
+    "third_octave_band_4": 0.7869815357188837,
+    "third_octave_band_5": 0.08942416223864284,
+    "third_octave_band_6": 0.23186718735300424,
+    "third_octave_band_7": 0.057460707763665464,
+    "third_octave_band_8": 0.29546501768931194,
+    "third_octave_band_9": 0.046144841937596215,
+    "third_octave_band_10": 0.5626491945215029,
+    "third_octave_band_11": 0.07876376201854803,
+    "third_octave_band_12": 0.47658262839221516,
+    "third_octave_band_13": 1.2222866582811667,
+    "third_octave_band_14": 0.07162570792759601,
+    "third_octave_band_15": 0.32387454245170166,
+    "third_octave_band_16": 0.3533081053432249,
+    "third_octave_band_17": 1.5620301841600006,
+    "third_octave_band_18": 0.011423364204721056,
+    "third_octave_band_19": 0.6795796888925392,
+    "third_octave_band_20": 0.5616388417685944,
+    "third_octave_band_21": 0.3344341527311957,
+    "third_octave_band_22": 0.09248682496016565,
+    "third_octave_band_23": 0.5261302618242493,
+    "third_octave_band_24": 1.320062760940201,
+    "third_octave_band_25": 2.6983375803063465,
+    "third_octave_band_26": 2.6928034900687923,
+    "mfcc_0": 1.3111083766554954,
+    "mfcc_1": 1.1004924258657627,
+    "mfcc_2": 0.7153140249466416,
+    "mfcc_3": 2.4884743923931434,
+    "mfcc_4": 1.6612233982281992,
+    "mfcc_5": 0.9052670320860755,
+    "mfcc_6": 1.6433497344848014,
+    "mfcc_7": 0.578293303795935,
+    "mfcc_8": 0.8939279939030368,
+    "mfcc_9": 1.243554232717323,
+    "mfcc_10": 2.6439107923131178,
+    "mfcc_11": 1.760057915764448,
+    "mfcc_12": 2.266745795549039
+  },
+  "all_models_val_macro_f1": {
+    "logistic_regression": 0.8864109723599123,
+    "random_forest": 0.8585200625325691,
+    "gradient_boosting": 0.8839641496863726
+  },
+  "all_models_test_comparison": {
+    "logistic_regression": {
+      "test_macro_f1": 0.8828905630452022,
+      "test_roc_auc": 0.9905723905723905,
+      "test_pr_auc": 0.8856169925463471,
+      "test_accuracy": 0.9590316573556797
+    },
+    "random_forest": {
+      "test_macro_f1": 0.8338490099009901,
+      "test_roc_auc": 0.9926887926887926,
+      "test_pr_auc": 0.9286945301616677,
+      "test_accuracy": 0.962756052141527
+    },
+    "gradient_boosting": {
+      "test_macro_f1": 0.8362441783100465,
+      "test_roc_auc": 0.9784511784511785,
+      "test_pr_auc": 0.7958279082765287,
+      "test_accuracy": 0.9590316573556797
+    }
+  },
+  "robustness_by_section_domain_group": {
+    "00|source": {
+      "n": 163,
+      "accuracy": 0.9938650306748467,
+      "macro_f1": 0.965058949624866
+    },
+    "00|target": {
+      "n": 16,
+      "accuracy": 0.8125,
+      "macro_f1": 0.8117647058823529
+    },
+    "01|source": {
+      "n": 163,
+      "accuracy": 0.9631901840490797,
+      "macro_f1": 0.8235930735930737
+    },
+    "01|target": {
+      "n": 16,
+      "accuracy": 0.9375,
+      "macro_f1": 0.9372549019607843
+    },
+    "02|source": {
+      "n": 163,
+      "accuracy": 0.9447852760736196,
+      "macro_f1": 0.7894963409384417
+    },
+    "02|target": {
+      "n": 16,
+      "accuracy": 0.875,
+      "macro_f1": 0.875
+    }
+  },
+  "class_imbalance_handling": "class_weight='balanced' for logistic_regression and random_forest; gradient_boosting has no native class_weight support and was fit on the natural ~11:1 normal:anomaly ratio as a direct, undistorted comparison point.",
+  "labels_are_native_dataset_ground_truth": true,
+  "label_provenance_note": "Unlike the Vibration ML V1 task, normal/anomaly here are the dataset's OWN vendor-assigned labels, not derived by this project.",
+  "feature_importance_by_family": {
+    "temporal": {
+      "total_importance": 3.413322764337185,
+      "mean_importance_per_feature": 0.8533306910842963,
+      "n_features": 4
+    },
+    "spectral": {
+      "total_importance": 9.367638811670158,
+      "mean_importance_per_feature": 1.3382341159528797,
+      "n_features": 7
+    },
+    "octave": {
+      "total_importance": 6.7515169803201145,
+      "mean_importance_per_feature": 0.6751516980320115,
+      "n_features": 10
+    },
+    "third_octave": {
+      "total_importance": 17.131081837982926,
+      "mean_importance_per_feature": 0.6344845125178862,
+      "n_features": 27
+    },
+    "mfcc": {
+      "total_importance": 19.211719418703016,
+      "mean_importance_per_feature": 1.4778245706694628,
+      "n_features": 13
+    }
+  },
+  "top_10_individual_features": [
+    {
+      "feature": "spectral_rolloff",
+      "importance": 2.7022706201409865
+    },
+    {
+      "feature": "third_octave_band_25",
+      "importance": 2.6983375803063465
+    },
+    {
+      "feature": "third_octave_band_26",
+      "importance": 2.6928034900687923
+    },
+    {
+      "feature": "mfcc_10",
+      "importance": 2.6439107923131178
+    },
+    {
+      "feature": "mfcc_3",
+      "importance": 2.4884743923931434
+    },
+    {
+      "feature": "spectral_centroid",
+      "importance": 2.2786467518029347
+    },
+    {
+      "feature": "mfcc_12",
+      "importance": 2.266745795549039
+    },
+    {
+      "feature": "spectral_bandwidth",
+      "importance": 1.8648583084983903
+    },
+    {
+      "feature": "rms",
+      "importance": 1.7904458626311044
+    },
+    {
+      "feature": "mfcc_11",
+      "importance": 1.760057915764448
+    }
+  ],
+  "feature_importance_caveat": "Importance here is mean |coefficient| magnitude from the winning logistic_regression model (features were standardized first, so magnitudes are comparable across features). This reflects which standardized features the model leans on most to separate normal/anomaly in THIS dataset's recording conditions - it is not a causal claim about which physical phenomenon drives bearing anomalies, and per the robustness_by_section_domain_group finding, the model's real-world reliability varies notably by recording section."
+}

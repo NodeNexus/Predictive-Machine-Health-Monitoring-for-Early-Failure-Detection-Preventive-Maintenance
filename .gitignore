@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+*.db
+*.sqlite3
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Datasets & media (not committed - too large)
+DATASET/
+VIDEO/
+Induction Motor-Thermal Images.zip
+Thermal image of equipment (Induction Motor) + 40 Ground Truths added.zip
+_thermal_audit_ds1/
+_thermal_audit_ds1_outer/
+_thermal_audit_ds2/
+_thermal_audit_ds2_outer/
+data/thermal/
+data/vibration/
+data/acoustic/
+data/processed/
+models/*.pt
+models/*.pkl
+models/*.onnx
+
+# Manifests are small JSON - keep them
+!data/manifests/
+
+# Logs
+*.log
+logs/
+
+# Env / secrets
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

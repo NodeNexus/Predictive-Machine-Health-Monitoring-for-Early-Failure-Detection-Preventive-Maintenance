@@ -1,0 +1,255 @@
+{
+  "model": "random_forest (full 10-feature, vibration-v1)",
+  "note": "This is a coverage/accuracy-under-rejection sweep on the held-out test set, NOT a formal calibration analysis (no reliability diagram, Brier score, or isotonic regression was performed). The model's known label-dependency tautology (rms/kurtosis are both input features and labeling criteria - see model_metadata.json) means high confidence here reflects confident reproduction of the derived labeling rule, not independently validated certainty about bearing health.",
+  "test_count": 336,
+  "confidence_vs_correctness": {
+    "mean_confidence_correct": 0.9844791666666666,
+    "mean_confidence_incorrect": null,
+    "median_confidence_correct": 1.0,
+    "median_confidence_incorrect": null,
+    "n_correct": 336,
+    "n_incorrect": 0
+  },
+  "thresholds": [
+    {
+      "threshold": 0.0,
+      "coverage": 1.0,
+      "accepted_predictions": 336,
+      "rejected_predictions": 0,
+      "accuracy_on_accepted": 1.0,
+      "macro_f1_on_accepted": 1.0,
+      "per_class_recall_on_accepted": {
+        "healthy": 1.0,
+        "degrading": 1.0,
+        "severe": 1.0
+      },
+      "confusion_matrix_on_accepted": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          232,
+          0
+        ],
+        [
+          0,
+          0,
+          88
+        ]
+      ]
+    },
+    {
+      "threshold": 0.5,
+      "coverage": 1.0,
+      "accepted_predictions": 336,
+      "rejected_predictions": 0,
+      "accuracy_on_accepted": 1.0,
+      "macro_f1_on_accepted": 1.0,
+      "per_class_recall_on_accepted": {
+        "healthy": 1.0,
+        "degrading": 1.0,
+        "severe": 1.0
+      },
+      "confusion_matrix_on_accepted": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          232,
+          0
+        ],
+        [
+          0,
+          0,
+          88
+        ]
+      ]
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 1.0,
+      "accepted_predictions": 336,
+      "rejected_predictions": 0,
+      "accuracy_on_accepted": 1.0,
+      "macro_f1_on_accepted": 1.0,
+      "per_class_recall_on_accepted": {
+        "healthy": 1.0,
+        "degrading": 1.0,
+        "severe": 1.0
+      },
+      "confusion_matrix_on_accepted": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          232,
+          0
+        ],
+        [
+          0,
+          0,
+          88
+        ]
+      ]
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.9970238095238095,
+      "accepted_predictions": 335,
+      "rejected_predictions": 1,
+      "accuracy_on_accepted": 1.0,
+      "macro_f1_on_accepted": 1.0,
+      "per_class_recall_on_accepted": {
+        "healthy": 1.0,
+        "degrading": 1.0,
+        "severe": 1.0
+      },
+      "confusion_matrix_on_accepted": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          232,
+          0
+        ],
+        [
+          0,
+          0,
+          87
+        ]
+      ]
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.9880952380952381,
+      "accepted_predictions": 332,
+      "rejected_predictions": 4,
+      "accuracy_on_accepted": 1.0,
+      "macro_f1_on_accepted": 1.0,
+      "per_class_recall_on_accepted": {
+        "healthy": 1.0,
+        "degrading": 1.0,
+        "severe": 1.0
+      },
+      "confusion_matrix_on_accepted": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          231,
+          0
+        ],
+        [
+          0,
+          0,
+          85
+        ]
+      ]
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.9523809523809523,
+      "accepted_predictions": 320,
+      "rejected_predictions": 16,
+      "accuracy_on_accepted": 1.0,
+      "macro_f1_on_accepted": 1.0,
+      "per_class_recall_on_accepted": {
+        "healthy": 1.0,
+        "degrading": 1.0,
+        "severe": 1.0
+      },
+      "confusion_matrix_on_accepted": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          227,
+          0
+        ],
+        [
+          0,
+          0,
+          77
+        ]
+      ]
+    },
+    {
+      "threshold": 0.95,
+      "coverage": 0.9136904761904762,
+      "accepted_predictions": 307,
+      "rejected_predictions": 29,
+      "accuracy_on_accepted": 1.0,
+      "macro_f1_on_accepted": 1.0,
+      "per_class_recall_on_accepted": {
+        "healthy": 1.0,
+        "degrading": 1.0,
+        "severe": 1.0
+      },
+      "confusion_matrix_on_accepted": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          220,
+          0
+        ],
+        [
+          0,
+          0,
+          71
+        ]
+      ]
+    },
+    {
+      "threshold": 0.99,
+      "coverage": 0.8125,
+      "accepted_predictions": 273,
+      "rejected_predictions": 63,
+      "accuracy_on_accepted": 1.0,
+      "macro_f1_on_accepted": 1.0,
+      "per_class_recall_on_accepted": {
+        "healthy": 1.0,
+        "degrading": 1.0,
+        "severe": 1.0
+      },
+      "confusion_matrix_on_accepted": [
+        [
+          13,
+          0,
+          0
+        ],
+        [
+          0,
+          202,
+          0
+        ],
+        [
+          0,
+          0,
+          58
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "model_name": "thermal_mobilenetv3_small",
+  "model_version": "thermal-v1",
+  "architecture": "MobileNetV3-Small (ImageNet pretrained, last 2 blocks + classifier head fine-tuned)",
+  "dataset": "induction_motor_thermal_images",
+  "dataset_manifest": "data/manifests/thermal_dataset1_split.json",
+  "class_names": ["CFL", "CML", "CNL", "HFL", "HML", "HNL"],
+  "class_meaning": {
+    "HFL": "Healthy / Full Load",
+    "HML": "Healthy / Medium Load",
+    "HNL": "Healthy / No Load",
+    "CFL": "Corroded Bearing / Full Load",
+    "CML": "Corroded Bearing / Medium Load",
+    "CNL": "Corroded Bearing / No Load"
+  },
+  "input_size": [224, 224],
+  "normalization": {
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225]
+  },
+  "random_seed": 42,
+  "training_timestamp": "2026-09-16T16:57:41Z",
+  "train_count": 340,
+  "validation_count": 60,
+  "test_count": 51,
+  "best_validation_macro_f1": 1.0,
+  "accuracy": 0.7254901960784313,
+  "macro_precision": 0.5378787878787878,
+  "macro_recall": 0.6458333333333334,
+  "macro_f1": 0.5799498746867168,
+  "top1_accuracy": 0.7254901960784313,
+  "top3_accuracy": 0.9607843137254902,
+  "notes": "Health-condition (Healthy vs Corroded Bearing) separation is perfect on the test set (zero cross-condition errors in the confusion matrix). Nearly all test errors are confusions between adjacent LOAD levels (Full vs Medium) within the same health condition, not health-condition errors. See docs/THERMAL_MODEL_V1_REPORT.md for full error analysis."
+}

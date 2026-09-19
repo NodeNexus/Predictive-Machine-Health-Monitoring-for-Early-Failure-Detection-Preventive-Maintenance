@@ -1,0 +1,165 @@
+{
+  "model_name": "logistic_regression",
+  "test_count": 537,
+  "test_macro_f1": 0.8828905630452022,
+  "test_roc_auc": 0.9905723905723905,
+  "test_pr_auc": 0.8856169925463471,
+  "test_report": {
+    "normal": {
+      "precision": 0.9978947368421053,
+      "recall": 0.9575757575757575,
+      "f1-score": 0.977319587628866,
+      "support": 495.0
+    },
+    "anomaly": {
+      "precision": 0.6612903225806451,
+      "recall": 0.9761904761904762,
+      "f1-score": 0.7884615384615384,
+      "support": 42.0
+    },
+    "accuracy": 0.9590316573556797,
+    "macro avg": {
+      "precision": 0.8295925297113752,
+      "recall": 0.9668831168831169,
+      "f1-score": 0.8828905630452022,
+      "support": 537.0
+    },
+    "weighted avg": {
+      "precision": 0.9715681346093654,
+      "recall": 0.9590316573556797,
+      "f1-score": 0.9625485670236,
+      "support": 537.0
+    }
+  },
+  "test_confusion_matrix": [
+    [
+      474,
+      21
+    ],
+    [
+      1,
+      41
+    ]
+  ],
+  "all_models_test_comparison": {
+    "logistic_regression": {
+      "test_macro_f1": 0.8828905630452022,
+      "test_roc_auc": 0.9905723905723905,
+      "test_pr_auc": 0.8856169925463471,
+      "test_accuracy": 0.9590316573556797
+    },
+    "random_forest": {
+      "test_macro_f1": 0.8338490099009901,
+      "test_roc_auc": 0.9926887926887926,
+      "test_pr_auc": 0.9286945301616677,
+      "test_accuracy": 0.962756052141527
+    },
+    "gradient_boosting": {
+      "test_macro_f1": 0.8362441783100465,
+      "test_roc_auc": 0.9784511784511785,
+      "test_pr_auc": 0.7958279082765287,
+      "test_accuracy": 0.9590316573556797
+    }
+  },
+  "robustness_by_section_domain_group": {
+    "00|source": {
+      "n": 163,
+      "accuracy": 0.9938650306748467,
+      "macro_f1": 0.965058949624866
+    },
+    "00|target": {
+      "n": 16,
+      "accuracy": 0.8125,
+      "macro_f1": 0.8117647058823529
+    },
+    "01|source": {
+      "n": 163,
+      "accuracy": 0.9631901840490797,
+      "macro_f1": 0.8235930735930737
+    },
+    "01|target": {
+      "n": 16,
+      "accuracy": 0.9375,
+      "macro_f1": 0.9372549019607843
+    },
+    "02|source": {
+      "n": 163,
+      "accuracy": 0.9447852760736196,
+      "macro_f1": 0.7894963409384417
+    },
+    "02|target": {
+      "n": 16,
+      "accuracy": 0.875,
+      "macro_f1": 0.875
+    }
+  },
+  "feature_importance_by_family": {
+    "temporal": {
+      "total_importance": 3.413322764337185,
+      "mean_importance_per_feature": 0.8533306910842963,
+      "n_features": 4
+    },
+    "spectral": {
+      "total_importance": 9.367638811670158,
+      "mean_importance_per_feature": 1.3382341159528797,
+      "n_features": 7
+    },
+    "octave": {
+      "total_importance": 6.7515169803201145,
+      "mean_importance_per_feature": 0.6751516980320115,
+      "n_features": 10
+    },
+    "third_octave": {
+      "total_importance": 17.131081837982926,
+      "mean_importance_per_feature": 0.6344845125178862,
+      "n_features": 27
+    },
+    "mfcc": {
+      "total_importance": 19.211719418703016,
+      "mean_importance_per_feature": 1.4778245706694628,
+      "n_features": 13
+    }
+  },
+  "top_10_individual_features": [
+    {
+      "feature": "spectral_rolloff",
+      "importance": 2.7022706201409865
+    },
+    {
+      "feature": "third_octave_band_25",
+      "importance": 2.6983375803063465
+    },
+    {
+      "feature": "third_octave_band_26",
+      "importance": 2.6928034900687923
+    },
+    {
+      "feature": "mfcc_10",
+      "importance": 2.6439107923131178
+    },
+    {
+      "feature": "mfcc_3",
+      "importance": 2.4884743923931434
+    },
+    {
+      "feature": "spectral_centroid",
+      "importance": 2.2786467518029347
+    },
+    {
+      "feature": "mfcc_12",
+      "importance": 2.266745795549039
+    },
+    {
+      "feature": "spectral_bandwidth",
+      "importance": 1.8648583084983903
+    },
+    {
+      "feature": "rms",
+      "importance": 1.7904458626311044
+    },
+    {
+      "feature": "mfcc_11",
+      "importance": 1.760057915764448
+    }
+  ]
+}

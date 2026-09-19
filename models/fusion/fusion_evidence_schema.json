@@ -1,0 +1,83 @@
+{
+  "schema_name": "multimodal_fusion_v1_evidence_schema",
+  "description": "Common representation each modality's ML evidence is mapped INTO before fusion logic consumes it. This schema is additive/documentation-only in this task - no production code constructs these objects yet (see fusion_architecture_design.md for the planned, not-yet-implemented, mapping functions).",
+
+  "common_fields": {
+    "available": {
+      "type": "boolean",
+      "description": "Whether this modality was part of the current demo/monitoring session at all (mirrors the deterministic engine's missing_modalities concept). False for a modality never configured for this session - distinct from 'present but suppressed'."
+    },
+    "prediction": {
+      "type": "string | null",
+      "description": "The modality's own class prediction, or null if unavailable OR suppressed by that modality's own confidence gate. NEVER a fabricated value - null means 'no assertion', not 'normal'."
+    },
+    "confidence": {
+      "type": "number | null",
+      "description": "The modality's own raw confidence value, PRESERVED even when the prediction was suppressed (matches every V1 confidence gate's existing convention: 'preserve raw confidence even when suppressed')."
+    },
+    "reliability": {
+      "type": "string",
+      "enum": ["high", "low", "unavailable"],
+      "description": "Directly copied from that modality's own confidence gate output. 'high' means confidence cleared that modality's OWN engineering threshold - it does NOT mean cross-condition/cross-section generalization is proven (see modality-specific known_limitation below)."
+    },
+    "anomaly_strength": {
+      "type": "number | null",
+      "range": [0.0, 1.0],
+      "description": "A common [0,1] scalar this schema maps each modality's own prediction space onto, so fusion logic can combine heterogeneous label spaces (thermal's 6 classes, vibration's 3 classes, acoustic's 2 classes) without pretending they're the same taxonomy. See per-modality mapping below. Null whenever prediction is null."
+    },
+    "model_version": {
+      "type": "string | null",
+      "description": "Copied verbatim from the modality's own model_metadata.json / confidence gate output."
+    },
+    "known_limitation": {
+      "type": "string",
+      "description": "A short, FIXED, non-editable-at-runtime string carrying that modality's own documented V1 limitation forward into fusion. This field exists specifically so fusion output can never be read as if the underlying modality models were more validated than they actually are."
+    }
+  },
+
+  "modality_specific_extension_fields": {
+    "thermal_evidence": {
+      "condition_context": {
+        "type": "string | null",
+        "description": "Preserved from ThermalMLModel's condition mapping (e.g. 'Healthy', 'Corroded Bearing') - NOT discarded by fusion, exactly as this task requires."
+      },
+      "load_context": {
+        "type": "string | null",
+        "description": "Preserved from ThermalMLModel's load mapping (e.g. 'Full', 'Medium', 'No Load')."
+      },
+      "known_limitation_value": "Load-level confusion is significant (CFL<->CML, HML->HFL); confidence does not reliably separate this specific error mode (median confidence nearly identical for correct vs incorrect predictions).",
+      "anomaly_strength_mapping": "0.0 if condition_context == 'Healthy', 1.0 if condition_context == 'Corroded Bearing', null if prediction is null (suppressed/unavailable). NOT scaled by confidence here - confidence is a separate field; anomaly_strength answers 'which side of healthy/faulted did it land on', confidence answers 'how sure was it'."
+    },
+    "vibration_evidence": {
+      "known_limitation_value": "Labels are project-derived from the IMS degradation trajectory via a documented statistical rule (see models/vibration/vibration_task_definition.json), not original dataset ground truth. RMS and kurtosis participate in both the input features and the label-construction rule. This is a derived-label trajectory classifier, NOT an independently validated fault detector.",
+      "anomaly_strength_mapping": "0.0 for 'healthy', 0.5 for 'degrading', 1.0 for 'severe', null if prediction is null."
+    },
+    "acoustic_evidence": {
+      "known_limitation_value": "Performance varies across machine sections/domain groups (macro-F1 0.789-0.965 across section|domain groups on the test set) - cross-section generalization is not fully established. A 'high' reliability reading reflects local model confidence only.",
+      "anomaly_strength_mapping": "0.0 for 'normal', 1.0 for 'anomaly', null if prediction is null."
+    }
+  },
+
+  "worked_examples": {
+    "high_confidence_all_three_mixed_severity": {
+      "thermal_evidence": {"available": true, "prediction": "HFL", "confidence": 0.94, "reliability": "high", "anomaly_strength": 0.0, "condition_context": "Healthy", "load_context": "Full", "model_version": "thermal_mobilenetv3_small_v1", "known_limitation": "Load-level confusion is significant..."},
+      "vibration_evidence": {"available": true, "prediction": "severe", "confidence": 0.97, "reliability": "high", "anomaly_strength": 1.0, "model_version": "vibration-v1", "known_limitation": "Derived-label trajectory classifier, not an independently validated fault detector..."},
+      "acoustic_evidence": {"available": true, "prediction": "anomaly", "confidence": 0.95, "reliability": "high", "anomaly_strength": 1.0, "model_version": "acoustic-v1", "known_limitation": "Performance varies across machine sections/domain groups..."}
+    },
+    "acoustic_suppressed": {
+      "thermal_evidence": {"available": true, "prediction": "CFL", "confidence": 0.88, "reliability": "high", "anomaly_strength": 1.0, "condition_context": "Corroded Bearing", "load_context": "Full", "model_version": "thermal_mobilenetv3_small_v1", "known_limitation": "..."},
+      "vibration_evidence": {"available": true, "prediction": "degrading", "confidence": 0.93, "reliability": "high", "anomaly_strength": 0.5, "model_version": "vibration-v1", "known_limitation": "..."},
+      "acoustic_evidence": {"available": true, "prediction": null, "confidence": 0.67, "reliability": "low", "anomaly_strength": null, "model_version": "acoustic-v1", "known_limitation": "..."}
+    },
+    "thermal_only": {
+      "thermal_evidence": {"available": true, "prediction": "HNL", "confidence": 0.91, "reliability": "high", "anomaly_strength": 0.0, "condition_context": "Healthy", "load_context": "No Load", "model_version": "thermal_mobilenetv3_small_v1", "known_limitation": "..."},
+      "vibration_evidence": {"available": false, "prediction": null, "confidence": null, "reliability": "unavailable", "anomaly_strength": null, "model_version": null, "known_limitation": "..."},
+      "acoustic_evidence": {"available": false, "prediction": null, "confidence": null, "reliability": "unavailable", "anomaly_strength": null, "model_version": null, "known_limitation": "..."}
+    },
+    "all_unavailable": {
+      "thermal_evidence": {"available": false, "prediction": null, "confidence": null, "reliability": "unavailable", "anomaly_strength": null, "model_version": null, "known_limitation": "..."},
+      "vibration_evidence": {"available": false, "prediction": null, "confidence": null, "reliability": "unavailable", "anomaly_strength": null, "model_version": null, "known_limitation": "..."},
+      "acoustic_evidence": {"available": false, "prediction": null, "confidence": null, "reliability": "unavailable", "anomaly_strength": null, "model_version": null, "known_limitation": "..."}
+    }
+  }
+}
