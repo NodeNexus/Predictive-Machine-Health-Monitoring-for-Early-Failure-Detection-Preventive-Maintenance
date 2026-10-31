@@ -1,0 +1,13 @@
+{
+  "name": "mmhm-demo-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Stable Render URL that forwards to the Raspberry Pi demo's current Cloudflare Quick Tunnel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
