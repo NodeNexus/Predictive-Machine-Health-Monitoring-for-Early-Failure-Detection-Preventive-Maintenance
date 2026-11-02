@@ -1,7 +1,7 @@
 """Model construction: MobileNetV3-Small via transfer learning.
 
 MobileNetV3-Small was chosen over ResNet18 (the only two candidates
-considered, per the brief) because IDEA LAB's actual deployment target is
+considered, per the brief) because Multimodal Machine Health Monitoring and Anomaly Detection's actual deployment target is
 CPU-only edge inference (confirmed no GPU is available on the current dev
 machine either): MobileNetV3-Small has ~2.5M parameters vs. ResNet18's
 ~11.7M, and is purpose-built for exactly this constraint. No benchmarking

@@ -11,7 +11,16 @@ opencv-python-headless==4.10.0.84
 librosa==0.10.2.post1
 soundfile==0.12.1
 scikit-learn==1.5.2
-# CPU-only builds - install with:
-#   pip install torch==2.14.0 torchvision==0.29.0 --index-url https://download.pytorch.org/whl/cpu
-torch==2.14.0
-torchvision==0.29.0
+# torch and torchvision are OPTIONAL - required only for the thermal ML model
+# (ThermalMLModel). The application runs without them; the thermal ML display
+# is simply skipped with ml_model.available=False. CPU-only builds must be
+# installed manually with the PyTorch extra index URL (standard PyPI builds
+# pull GPU dependencies by default):
+#
+#   python -m pip install torch==2.14.0 torchvision==0.29.0 \
+#       --index-url https://download.pytorch.org/whl/cpu
+#
+# Do NOT add these to a plain pip install -r requirements.txt invocation -
+# they are intentionally omitted from automatic installs.
+# torch==2.14.0
+# torchvision==0.29.0

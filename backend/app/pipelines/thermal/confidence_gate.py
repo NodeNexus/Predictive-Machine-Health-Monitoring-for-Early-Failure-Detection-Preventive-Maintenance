@@ -39,6 +39,7 @@ def apply_confidence_gate(prediction: dict | None, model_version: str | None, th
     if prediction is None:
         return {
             "ml_prediction": None,
+            "ml_top_class": None,
             "ml_confidence": None,
             "ml_condition": None,
             "ml_load_context": None,
@@ -52,6 +53,9 @@ def apply_confidence_gate(prediction: dict | None, model_version: str | None, th
     if confidence < threshold:
         return {
             "ml_prediction": None,
+            # The model's raw best guess, passed through so the dashboard can show it as tentative. It is NOT a
+            # reliable class: ml_prediction stays None below the threshold, and the threshold is unchanged.
+            "ml_top_class": predicted_class,
             "ml_confidence": confidence,
             "ml_condition": None,
             "ml_load_context": None,
@@ -61,6 +65,7 @@ def apply_confidence_gate(prediction: dict | None, model_version: str | None, th
 
     return {
         "ml_prediction": predicted_class,
+        "ml_top_class": predicted_class,
         "ml_confidence": confidence,
         "ml_condition": _CONDITION.get(predicted_class),
         "ml_load_context": _LOAD_CONTEXT.get(predicted_class),

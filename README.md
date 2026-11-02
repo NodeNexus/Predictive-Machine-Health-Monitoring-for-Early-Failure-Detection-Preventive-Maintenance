@@ -1,64 +1,68 @@
-# IDEA LAB
+# Multimodal Machine Health Monitoring and Anomaly Detection
 
-Multimodal (thermal + vibration + acoustic) machine-health monitoring and predictive-maintenance platform.
+Research prototype for monitoring machine health from **thermal video, vibration and sound**. It replays real recorded
+datasets through feature extraction, baselines, anomaly checks and trained models, and shows each signal's result on
+a single-page dashboard. Each signal is judged separately: the recordings are not synchronised, so there is no
+combined diagnosis. It is **not** a validated fault-diagnosis or remaining-useful-life product.
 
-## Status
+**Main guide: [docs/PROJECT_GUIDE.md](docs/PROJECT_GUIDE.md).** It covers:
+- scope and limitations
+- dataset sources and licences
+- inputs and outputs
+- models and their measured results
+- setup and dashboard use
+- hosting
+- known issues
 
-All 10 build phases complete. A full demo works end-to-end: register a machine, start DEMO MODE against real thermal/vibration/acoustic datasets, watch live per-modality feature extraction and health scoring over WebSocket telemetry, with auto-calibrating baselines, layered anomaly detection, evidence-level fusion, temporal smoothing, and a charted dashboard. See `docs/ARCHITECTURE.md` for the system design, `docs/API.md` for the endpoint reference, `docs/DATASETS.md` for what's actually in the downloaded datasets, and `docs/DEVELOPMENT.md` for the full phase-by-phase history (including known limitations, stated plainly).
+## Measured results (held-out test data)
 
-Quick start once both servers are running (see below): open the dashboard, use the **Demo Mode** panel to pick a machine and enter dataset paths (e.g. a thermal MP4 from `VIDEO/`, an IMS test directory + channel from `DATASET/IMS/IMS/1st_test/1st_test`, a WAV from `DATASET/bearing/bearing/train/`), and press Start.
+| Signal | Model | Result |
+|---|---|---|
+| Sound | logistic regression, normal / anomaly (bearing sounds, the dataset's own labels) | 41 of 42 faulty clips caught (98%), 21 of 495 normal clips falsely flagged, macro-F1 0.88 |
+| Thermal | MobileNetV3-Small, 6 classes | 72.5% accuracy, 96.1% top-3, on 51 still images; accuracy on the demo videos has not been measured |
+| Vibration | Random Forest, 3 derived classes | test macro-F1 1.0 is circular (labels come from the same features); 0.857 without them. See the guide, §6.2 |
 
-## Project layout
+## Run on Windows
 
-```
-backend/    FastAPI application (API, WebSocket telemetry, pipelines, fusion, database)
-frontend/   React + TypeScript + Vite dashboard
-data/       Derived/processed data and manifests (raw datasets are NOT committed)
-DATASET/    Downloaded raw datasets (gitignored — development/validation material only)
-VIDEO/      Downloaded thermal demo videos (gitignored)
-docs/       Architecture and development documentation
-scripts/    Standalone tooling (dataset inspection, etc.)
-```
+Double-click **`start_all.bat`**. It sets up the backend venv if needed, starts the backend (port 8000) and
+frontend (port 5173), and opens <http://localhost:5173>.
 
-## One-click startup
-
-The fastest way to run IDEA LAB on Windows, once the backend virtual environment and frontend `node_modules` already exist (see **Running locally** below for first-time setup):
-
-1. Double-click **`run_idea_lab.bat`** in the project root.
-2. A console window walks through project/environment checks, runs the dataset scanner, then opens two more windows titled **"IDEA LAB - BACKEND"** and **"IDEA LAB - FRONTEND"** — leave those open; they show live server logs.
-3. Your default browser opens automatically once both servers respond.
-4. If it doesn't open automatically, go to: **http://localhost:5173**
-
-Closing the original launcher window does **not** stop the backend or frontend — they keep running in their own windows. To stop IDEA LAB, close those two windows directly (or press Ctrl+C inside them).
-
-The launcher will not silently create a virtual environment or run `npm install` for you — if either is missing, it prints the exact command to run and exits. It also won't create fake "connected" state or force-kill unrelated processes: if port 8000 or 5173 is already in use, it warns and continues rather than guessing.
-
-## Running locally
-
-To start each server manually (e.g. on first-time setup, or on macOS/Linux, or to run backend/frontend independently):
-
-Backend:
+To run them by hand:
 
 ```
 cd backend
-python -m venv .venv
-./.venv/Scripts/python.exe -m pip install -r requirements-dev.txt
-./.venv/Scripts/python.exe -m uvicorn app.main:app --reload --port 8000
-```
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --port 8000
 
-Frontend:
-
-```
 cd frontend
-npm install
-npm run dev
+npm run dev        # open http://localhost:5173
 ```
 
-The Vite dev server proxies `/api/*` and `/ws/*` to `http://127.0.0.1:8000`.
-
-## Tests
+To run the tests (199 tests, about 2 minutes):
 
 ```
 cd backend
-./.venv/Scripts/python.exe -m pytest tests/ -v
+.\.venv\Scripts\python.exe -m pytest tests/ -v
 ```
+
+## Demo hosting
+
+- **Raspberry Pi:** the backend serves the dashboard behind a Cloudflare Quick Tunnel. See [docs/PI_DEMO.md](docs/PI_DEMO.md).
+- **Stable URL (optional):** a Render gateway gives the demo one fixed address and follows the tunnel. See [docs/RENDER_GATEWAY.md](docs/RENDER_GATEWAY.md).
+- **No authentication:** anyone with either link can use the dashboard. Stop the demo after presenting.
+
+## Folders
+
+| Folder | Contents |
+|---|---|
+| `backend/` | FastAPI app, pipelines, tests |
+| `frontend/` | React dashboard ([docs/FRONTEND.md](docs/FRONTEND.md)) |
+| `ml/` | training and inference code |
+| `models/` | trained models |
+| `data/` | manifests and processed features |
+| `scripts/` | dataset, training and evaluation scripts |
+| `deploy/` | Pi and Render hosting |
+| `docs/` | all documentation: the guide, frontend, Pi demo and Render gateway docs, plus history and audits in `docs/history/` |
+| `submission/` | Seva Innovation Challenge 2026 deck and team document |
+
+Raw datasets (`DATASET/`, `VIDEO/`, `_thermal_audit_ds*/`) are local copies with their own licences. Do not
+redistribute them; see the guide, §4 and §10.

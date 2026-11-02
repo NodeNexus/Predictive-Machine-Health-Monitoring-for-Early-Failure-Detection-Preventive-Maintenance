@@ -10,6 +10,7 @@ import {
   parseMachine,
   parseMachineHealthState,
   parseMachineVideos,
+  parseThermalEvaluation,
   parseThermalFeed,
 } from "./contracts";
 import type {
@@ -25,6 +26,7 @@ import type {
   MachineCreate,
   MachineHealthState,
   MachineVideoEntry,
+  ThermalEvaluation,
   ThermalFeedEntry,
 } from "../types";
 
@@ -367,6 +369,9 @@ export const api = {
 
   stopDemo: (options?: ApiRequestOptions) =>
     request<DemoStatus>("/api/demo/stop", { ...options, method: "POST" }, parseDemoStatus),
+
+  thermalEvaluation: (options?: ApiRequestOptions) =>
+    request<ThermalEvaluation>("/api/demo/thermal-evaluation", options, parseThermalEvaluation),
 
   thermalImageFeed: (options?: ApiRequestOptions) =>
     request<ThermalFeedEntry[]>("/api/demo/thermal-image-feed", options, parseThermalFeed),

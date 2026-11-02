@@ -1,4 +1,7 @@
+import pytest
 from fastapi.testclient import TestClient
+
+from app.core.config import settings
 
 from app.main import app
 from app.pipelines.common.interfaces import SlidingWindowBuffer
@@ -11,7 +14,7 @@ def test_health_endpoint():
         assert response.status_code == 200
         body = response.json()
         assert body["status"] == "ok"
-        assert body["app"] == "IDEA LAB"
+        assert body["app"] == "Multimodal Machine Health Monitoring and Anomaly Detection"
 
 
 def test_machine_crud_and_status():
@@ -43,9 +46,13 @@ def test_machine_events_endpoint_starts_empty():
         assert missing.status_code == 404
 
 
-def test_datasets_start_empty():
+def test_datasets_endpoint_returns_registry_rows():
+    # The registry lives in the real backend/idealab.db and is filled by scripts/scan_datasets.py,
+    # so its contents depend on whether a scan has run. Check the shape, not emptiness.
     with TestClient(app) as client:
-        assert client.get("/api/datasets").json() == []
+        rows = client.get("/api/datasets").json()
+        assert isinstance(rows, list)
+        assert all("dataset_name" in row and "path" in row for row in rows)
 
 
 def test_devices_reflects_real_probe_not_fabricated_data():
@@ -59,6 +66,11 @@ def test_devices_reflects_real_probe_not_fabricated_data():
 
 
 def test_demo_lifecycle():
+    # Start now validates that a source can really be replayed, so this uses a real clip
+    # (the same one the acoustic demo scenario uses) rather than a placeholder path.
+    clip = settings.dataset_dir / "bearing" / "bearing" / "train" / "section_00_source_train_normal_0000_vel_22.wav"
+    if not clip.is_file():
+        pytest.skip("acoustic demo clip not present in this environment")
     with TestClient(app) as client:
         machine = client.post("/api/machines", json={"machine_name": "Demo Machine"}).json()
 
@@ -67,7 +79,7 @@ def test_demo_lifecycle():
 
         start = client.post(
             "/api/demo/start",
-            json={"machine_id": machine["machine_id"], "thermal_source": "VIDEO/sample.mp4"},
+            json={"machine_id": machine["machine_id"], "acoustic_source": str(clip)},
         )
         assert start.status_code == 200
         assert start.json()["running"] is True

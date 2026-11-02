@@ -4,7 +4,7 @@ Uses synthetic-but-correctly-shaped data (not the full real datasets, for
 speed and determinism) so the test suite stays fast while still exercising
 the real reader -> analyzer -> anomaly -> fusion -> broadcast -> persistence
 chain in-process. The manual end-to-end run against real multi-GB datasets
-(documented in docs/DEVELOPMENT.md) is the authoritative real-data check;
+(documented in docs/history/DEVELOPMENT.md) is the authoritative real-data check;
 this test guards against regressions in the wiring.
 """
 from __future__ import annotations

@@ -15,6 +15,8 @@ export interface UseTelemetryOptions {
   maxReconnectAttempts?: number;
   reconnectInitialDelayMs?: number;
   reconnectMaxDelayMs?: number;
+  /** Called for every valid payload for the selected machine, before `latest` updates (e.g. to accumulate events). */
+  onPayload?: (payload: TelemetryPayload) => void;
 }
 
 export type TelemetryErrorKind = "socket" | "invalid_payload" | "unsupported_message" | "reconnect_exhausted";
@@ -87,7 +89,10 @@ export function useTelemetry(options: UseTelemetryOptions = {}): UseTelemetryRes
     maxReconnectAttempts = Number.POSITIVE_INFINITY,
     reconnectInitialDelayMs = 500,
     reconnectMaxDelayMs = 15_000,
+    onPayload,
   } = options;
+  const onPayloadRef = useRef(onPayload);
+  useEffect(() => { onPayloadRef.current = onPayload; });
 
   const [connection, setConnection] = useState<ConnectionState>(enabled ? "connecting" : "closed");
   const [latest, setLatest] = useState<TelemetryPayload | null>(null);
@@ -206,6 +211,7 @@ export function useTelemetry(options: UseTelemetryOptions = {}): UseTelemetryRes
             const payload = parseTelemetryMessage(await decodeSocketData(event.data));
             if (disposed || socketRef.current !== socket) return;
             if (machineId !== null && payload.machine_id !== machineId) return;
+            onPayloadRef.current?.(payload);
             setLatest(payload);
             setLastMessageAt(Date.now());
             setError(null);
@@ -244,7 +250,10 @@ export function useTelemetry(options: UseTelemetryOptions = {}): UseTelemetryRes
       if (socketRef.current !== null) {
         const socket = socketRef.current;
         socketRef.current = null;
-        socket.close();
+        // Closing a socket that is still connecting logs a browser warning (seen with React
+        // StrictMode's double mount); let it finish opening, then close it.
+        if (socket.readyState === WebSocket.CONNECTING) socket.onopen = () => socket.close();
+        else socket.close();
       }
     };
   }, [

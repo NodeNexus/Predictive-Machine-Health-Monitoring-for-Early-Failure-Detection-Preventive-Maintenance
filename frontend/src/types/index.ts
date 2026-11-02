@@ -38,12 +38,25 @@ export type MLFusionReliability = "high" | "partial" | "unavailable";
  */
 export interface ThermalFeedEntry {
   image_id: string;
+  /** Known label of this held-out test image, from the saved split manifest (not a model output). */
+  true_class: string | null;
   ml_prediction: string | null;
+  /** The model's raw best guess, also when it is below the reliability threshold (then `ml_prediction` is null). */
+  ml_top_class: string | null;
   ml_confidence: number | null;
   ml_condition: string | null;
   ml_load_context: string | null;
   ml_reliability: MLReliability;
   model_version: string | null;
+}
+
+/** Saved held-out TEST-image results of the thermal classifier (not measured on the demo videos). */
+export interface ThermalEvaluation {
+  model_version: string | null;
+  accuracy: number;
+  macro_f1: number;
+  top3_accuracy: number;
+  test_count: number | null;
 }
 
 export interface HealthResponse {
@@ -212,6 +225,8 @@ export interface ThermalTelemetry {
    * is still reported when known.
    */
   ml_prediction: string | null;
+  /** The model's raw best guess, also when it is below the reliability threshold (then `ml_prediction` is null). */
+  ml_top_class: string | null;
   ml_confidence: number | null;
   ml_condition: string | null;
   ml_load_context: string | null;
@@ -267,6 +282,15 @@ export interface MLFusionTelemetry {
   };
 }
 
+/** Real replay position reported by the backend's file reader. Absent when the backend cannot report it. */
+export interface PlaybackProgress {
+  unit: "seconds" | "files";
+  position: number;
+  total: number;
+  /** How many times the recording has been (re)started; the demo loops when a recording ends. */
+  loop: number;
+}
+
 export interface TelemetryPayload {
   timestamp: string;
   machine_id: string;
@@ -277,6 +301,7 @@ export interface TelemetryPayload {
   health: MachineHealthState | null;
   ml_fusion: MLFusionTelemetry | null;
   events: TelemetryEvent[];
+  progress: Partial<Record<Modality, PlaybackProgress>>;
 }
 
 /** Bounded chart projection of backend envelopes retained by the browser. */

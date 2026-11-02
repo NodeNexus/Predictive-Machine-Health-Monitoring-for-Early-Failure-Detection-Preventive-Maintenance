@@ -83,7 +83,8 @@ class _ModalityRuntime:
         self.latest_rich_features: dict | None = None  # full feature model, for dashboard charts
         self.latest_ml_evidence: dict | None = None  # thermal/vibration/acoustic only - contextual, never fed into ingest()
         self.source_description: str = ""
-
+        self.progress: dict | None = None  # real replay position reported by the file reader
+        self.loop_count = 0  # times the recording has been (re)started
     def ingest(self, feature_dict: dict[str, float], rich_features=None) -> None:
         self.latest_features = feature_dict
         if rich_features is not None:
@@ -250,10 +251,11 @@ class DemoRunner:
         # If unavailable (missing checkpoint, torch not installed, etc.),
         # ml_model.available is False and predict() always returns None -
         # the deterministic loop below is entirely unaffected either way.
-        ml_model = ThermalMLModel()
+        # Built in a worker thread: importing torch and loading the checkpoint takes seconds, and doing it on the
+        # event loop would freeze every API call and the WebSocket (the dashboard then reports the backend as unreachable).
+        ml_model = await asyncio.to_thread(ThermalMLModel)
         ml_stride = max(1, settings.thermal_ml_inference_stride)
         ml_frame_counter = 0
-
         while self._running:
             reader = ThermalVideoReader(path, target_fps=settings.thermal_processing_fps)
             try:
@@ -262,11 +264,15 @@ class DemoRunner:
                 logger.warning(f"Thermal source unavailable: {exc}")
                 return
             runtime.source_description = reader.source_description
+            runtime.loop_count += 1
             try:
                 while self._running:
                     frame = reader.read_frame()
                     if frame is None:
                         break  # end of video - loop back and reopen for continuous demo playback
+                    pos = reader.progress()
+                    if pos is not None:
+                        runtime.progress = {"unit": "seconds", "position": round(pos[0], 2), "total": round(pos[1], 2), "loop": runtime.loop_count}
 
                     # Deterministic thermal analysis - unchanged, authoritative,
                     # feeds baseline/anomaly/fusion exactly as before ML existed.
@@ -312,7 +318,7 @@ class DemoRunner:
         # If unavailable (missing model/metadata files, etc.), ml_model.
         # available is False and predict() always returns None - the
         # deterministic loop below is entirely unaffected either way.
-        ml_model = VibrationMLModel()
+        ml_model = await asyncio.to_thread(VibrationMLModel)
 
         while self._running:
             reader = IMSVibrationDatasetReader(
@@ -328,12 +334,19 @@ class DemoRunner:
                 logger.warning(f"Vibration source unavailable: {exc}")
                 return
             runtime.source_description = reader.source_description
+            runtime.loop_count += 1
             window_samples = int(settings.vibration_default_sample_rate * settings.vibration_window_seconds)
             try:
                 while self._running:
                     chunk = reader.read_chunk(window_samples)
                     if chunk is None:
                         break
+                    runtime.progress = {
+                        "unit": "files",
+                        "position": chunk.metadata["files_consumed"],
+                        "total": chunk.metadata["total_files"],
+                        "loop": runtime.loop_count,
+                    }
 
                     # Deterministic vibration analysis - unchanged, authoritative,
                     # feeds baseline/anomaly/fusion exactly as before ML existed.
@@ -376,7 +389,7 @@ class DemoRunner:
         # If unavailable (missing model/metadata files, etc.), ml_model.
         # available is False and predict() always returns None - the
         # deterministic loop below is entirely unaffected either way.
-        ml_model = AcousticMLModel()
+        ml_model = await asyncio.to_thread(AcousticMLModel)
 
         while self._running:
             reader = AudioFileReader(path)
@@ -386,6 +399,7 @@ class DemoRunner:
                 logger.warning(f"Acoustic source unavailable: {exc}")
                 return
             runtime.source_description = reader.source_description
+            runtime.loop_count += 1
 
             # ML: contextual evidence only, computed ONCE per clip play
             # (this model's true unit of analysis is the whole clip - see
@@ -393,7 +407,7 @@ class DemoRunner:
             # ingest() calls below. A raised exception inside predict() is
             # already caught internally by AcousticMLModel and returns
             # None - this call cannot interrupt the deterministic loop.
-            ml_prediction = ml_model.predict(path)
+            ml_prediction = await asyncio.to_thread(ml_model.predict, path)
             runtime.latest_ml_evidence = apply_acoustic_confidence_gate(
                 ml_prediction,
                 model_version=ml_model.model_version,
@@ -406,6 +420,9 @@ class DemoRunner:
                     chunk = reader.read_chunk(window_samples)
                     if chunk is None:
                         break  # end of clip - loop back and reopen so the demo stays "live"
+                    pos = reader.progress()
+                    if pos is not None:
+                        runtime.progress = {"unit": "seconds", "position": round(pos[0], 2), "total": round(pos[1], 2), "loop": runtime.loop_count}
 
                     # Deterministic acoustic analysis - unchanged, authoritative,
                     # feeds baseline/anomaly/fusion exactly as before ML existed.
@@ -496,6 +513,7 @@ class DemoRunner:
                 health=state,
                 ml_fusion=ml_fusion_result,
                 events=events,
+                progress={m: r.progress for m, r in self._runtimes.items() if r.progress is not None},
             )
             await telemetry_hub.broadcast(payload.model_dump(mode="json"))
             self._persist_health(state)

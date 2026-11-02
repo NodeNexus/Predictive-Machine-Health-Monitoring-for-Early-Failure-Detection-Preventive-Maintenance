@@ -25,6 +25,7 @@ import type {
   SpectralPeak,
   TelemetryEvent,
   TelemetryPayload,
+  ThermalEvaluation,
   ThermalFeedEntry,
   ThermalTelemetry,
   VibrationTelemetry,
@@ -325,6 +326,7 @@ export function parseThermalTelemetry(value: unknown): ThermalTelemetry {
     gradient_max: numberValue(source.gradient_max, "telemetry.thermal.gradient_max"),
     is_radiometric: booleanValue(source.is_radiometric, "telemetry.thermal.is_radiometric"),
     ml_prediction: optionalString(source.ml_prediction, "telemetry.thermal.ml_prediction"),
+    ml_top_class: optionalString(source.ml_top_class, "telemetry.thermal.ml_top_class"),
     ml_confidence: optionalNumber(source.ml_confidence, "telemetry.thermal.ml_confidence"),
     ml_condition: optionalString(source.ml_condition, "telemetry.thermal.ml_condition"),
     ml_load_context: optionalString(source.ml_load_context, "telemetry.thermal.ml_load_context"),
@@ -377,6 +379,25 @@ function parseTelemetryEvent(value: unknown, path: string): TelemetryEvent {
   };
 }
 
+/** Lenient on purpose: a malformed progress entry is dropped (shown as unavailable) rather than rejecting the whole envelope. */
+function parseProgress(value: unknown): TelemetryPayload["progress"] {
+  const out: TelemetryPayload["progress"] = {};
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return out;
+  const source = value as Record<string, unknown>;
+  for (const key of ["thermal", "vibration", "acoustic"] as const) {
+    const item = source[key];
+    if (typeof item !== "object" || item === null) continue;
+    const entry = item as Record<string, unknown>;
+    const unit = entry.unit;
+    const { position, total, loop } = entry;
+    if ((unit === "seconds" || unit === "files") && typeof position === "number" && typeof total === "number"
+      && typeof loop === "number" && Number.isFinite(position) && Number.isFinite(total) && total > 0) {
+      out[key] = { unit, position, total, loop };
+    }
+  }
+  return out;
+}
+
 export function parseTelemetryPayload(value: unknown): TelemetryPayload {
   const source = record(value, "telemetry");
   const mode = source.mode;
@@ -393,6 +414,7 @@ export function parseTelemetryPayload(value: unknown): TelemetryPayload {
     events: arrayValue(source.events ?? [], "telemetry.events").map((item, index) =>
       parseTelemetryEvent(item, `telemetry.events[${index}]`),
     ),
+    progress: parseProgress(source.progress),
   };
 }
 
@@ -525,7 +547,9 @@ export function parseThermalFeed(value: unknown): ThermalFeedEntry[] {
     const source = record(item, path);
     return {
       image_id: stringValue(source.image_id, `${path}.image_id`),
+      true_class: optionalString(source.true_class, `${path}.true_class`),
       ml_prediction: optionalString(source.ml_prediction, `${path}.ml_prediction`),
+      ml_top_class: optionalString(source.ml_top_class, `${path}.ml_top_class`),
       ml_confidence: optionalNumber(source.ml_confidence, `${path}.ml_confidence`),
       ml_condition: optionalString(source.ml_condition, `${path}.ml_condition`),
       ml_load_context: optionalString(source.ml_load_context, `${path}.ml_load_context`),
@@ -533,6 +557,17 @@ export function parseThermalFeed(value: unknown): ThermalFeedEntry[] {
       model_version: optionalString(source.model_version, `${path}.model_version`),
     };
   });
+}
+
+export function parseThermalEvaluation(value: unknown): ThermalEvaluation {
+  const source = record(value, "thermal_evaluation");
+  return {
+    model_version: optionalString(source.model_version, "thermal_evaluation.model_version"),
+    accuracy: numberValue(source.accuracy, "thermal_evaluation.accuracy"),
+    macro_f1: numberValue(source.macro_f1, "thermal_evaluation.macro_f1"),
+    top3_accuracy: numberValue(source.top3_accuracy, "thermal_evaluation.top3_accuracy"),
+    test_count: optionalNumber(source.test_count, "thermal_evaluation.test_count"),
+  };
 }
 
 export function safeParse<T>(parser: (value: unknown) => T, value: unknown): SafeParseResult<T> {

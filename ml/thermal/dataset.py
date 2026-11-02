@@ -8,6 +8,7 @@ the manifest (HFL/HML/HNL/CFL/CML/CNL).
 from __future__ import annotations
 
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -17,6 +18,21 @@ from torch.utils.data import Dataset
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_PATH = REPO_ROOT / "data" / "manifests" / "thermal_dataset1_split.json"
+
+
+def resolve_image_path(recorded: str) -> Path:
+    """Manifests store absolute paths from the machine that generated them. If that path is
+    missing, re-root it under this checkout. Mirrors backend/app/core/paths.py (kept separate
+    because ml/ does not import the backend package)."""
+    path = Path(recorded)
+    if path.exists():
+        return path
+    parts = [p for p in re.split(r"[\\/]+", recorded) if p]
+    if "MECHANICAL" in parts:
+        last = len(parts) - 1 - parts[::-1].index("MECHANICAL")
+        if parts[last + 1 :]:
+            return REPO_ROOT.joinpath(*parts[last + 1 :])
+    return path
 
 CLASS_MEANING = {
     "HFL": "Healthy / Full Load",
@@ -46,7 +62,7 @@ class ThermalManifestDataset(Dataset):
     ) -> None:
         records = load_manifest_records(manifest_path)
         self.samples: list[tuple[str, int]] = [
-            (r["image_path"], class_names.index(r["class"])) for r in records if r["split"] == split
+            (resolve_image_path(r["image_path"]), class_names.index(r["class"])) for r in records if r["split"] == split
         ]
         if not self.samples:
             raise ValueError(f"No samples found for split={split!r} in {manifest_path}")

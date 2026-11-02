@@ -1,7 +1,7 @@
 """Gates a raw Vibration ML V1 model prediction (see
 models/vibration/vibration_baseline_v1.joblib and
 models/vibration/vibration_task_definition.json) into a safe,
-evidence-only shape for the IDEA LAB runtime.
+evidence-only shape for the Multimodal Machine Health Monitoring and Anomaly Detection runtime.
 
 CRITICAL LABEL-DEPENDENCY LIMITATION (must never be lost - repeated here,
 not only in the training report): the underlying model's classes

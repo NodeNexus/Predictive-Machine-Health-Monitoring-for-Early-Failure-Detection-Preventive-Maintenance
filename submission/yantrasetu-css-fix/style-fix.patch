@@ -1,0 +1,88 @@
+diff --git a/public/assets/css/style.css b/public/assets/css/style.css
+index 98a3a2c..91d2edf 100644
+--- a/public/assets/css/style.css
++++ b/public/assets/css/style.css
+@@ -597,3 +597,83 @@ footer.site-footer {
+   .footer-grid { grid-template-columns: 1fr; }
+   .hero-content h2.hero-title { font-size: 2rem; }
+ }
++
++/* ==========================================================================
++   Layout fixes (v1.1)
++   - Grid columns use minmax(0, 1fr): a plain 1fr cannot shrink below its longest
++     unbreakable text, which pushed the page wider than the phone screen.
++   - Header no longer has a fixed height: long labels wrap to a second row
++     instead of overflowing and squashing the call-to-action button.
++   ========================================================================== */
++html { -webkit-text-size-adjust: 100%; scroll-padding-top: 130px; }
++img, canvas, svg, video { max-width: 100%; }
++
++.hero-grid, .workbench-body, .grid-2, .grid-3, .stats-ribbon, .footer-grid { min-width: 0; }
++.hero-grid > *, .workbench-body > *, .grid-2 > *, .grid-3 > *,
++.stats-ribbon > *, .footer-grid > *, .feed-box, .feature-card { min-width: 0; }
++
++.hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
++.workbench-body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
++.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
++.stats-ribbon { grid-template-columns: repeat(4, minmax(0, 1fr)); }
++.footer-grid { grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); }
++
++.badge-pill { max-width: 100%; flex-wrap: wrap; white-space: normal; overflow-wrap: anywhere; }
++.hero-title, .section-title, .feature-title, .feature-desc, .stat-label, .stat-sub { overflow-wrap: anywhere; }
++.workbench-topbar, .workbench-title-group { min-width: 0; }
++
++/* Header */
++.header-inner { height: auto; min-height: 72px; flex-wrap: wrap; row-gap: 6px; column-gap: 24px; padding-top: 10px; padding-bottom: 10px; }
++.brand-group { flex: 0 0 auto; }
++.brand-text span { white-space: nowrap; }
++nav.main-nav { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; gap: 2px 4px; }
++nav.main-nav a { white-space: nowrap; padding: 6px 10px; font-size: 0.85rem; }
++.btn-header-cta { white-space: nowrap; margin-left: 6px; }
++
++@media (max-width: 992px) {
++  .hero-grid { grid-template-columns: minmax(0, 1fr); }
++  .workbench-body { grid-template-columns: minmax(0, 1fr); }
++  .stats-ribbon { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++  .grid-2 { grid-template-columns: minmax(0, 1fr); }
++  .grid-3 { grid-template-columns: minmax(0, 1fr); }
++  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++  nav.main-nav { justify-content: flex-start; }
++}
++
++@media (max-width: 640px) {
++  .container { padding: 0 16px; }
++  .header-inner { min-height: 64px; }
++  /* the menu was hidden on phones; keep it as a swipeable row instead */
++  nav.main-nav { display: flex; flex-wrap: nowrap; overflow-x: auto; width: 100%; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
++  nav.main-nav::-webkit-scrollbar { display: none; }
++  .btn-header-cta { display: none; }
++  .brand-text span { white-space: normal; }
++  .hero-section { padding: 40px 0 32px; }
++  .hero-actions .btn { width: 100%; }
++  .stats-ribbon { grid-template-columns: minmax(0, 1fr); }
++  .footer-grid { grid-template-columns: minmax(0, 1fr); }
++  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
++  .section-block { padding: 48px 0; }
++  .section-title { font-size: 1.75rem; }
++  .workbench-topbar, .workbench-body { padding: 16px; }
++  .workbench-controls { width: 100%; }
++}
++
++/* inline min-width: 280px on a flex item forced a 280px floor even inside a narrow card */
++[style*="min-width: 280px"] { min-width: 0 !important; }
++.feature-card, .feed-box, .workbench-container { max-width: 100%; }
++
++@media (max-width: 640px) {
++  .brand-group { flex: 1 1 auto; min-width: 0; }
++  .brand-text { min-width: 0; }
++  .brand-text span { overflow-wrap: anywhere; }
++  .footer-col, .footer-col h4, .footer-col p, .footer-col li { min-width: 0; overflow-wrap: anywhere; }
++}
++
++/* inline 3-column grids (spec figures, gating tiers): let columns shrink, and stack them on phones */
++[style*="repeat(3, 1fr)"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
++[style*="repeat(3, 1fr)"] > * { min-width: 0; overflow-wrap: anywhere; }
++@media (max-width: 640px) {
++  [style*="repeat(3, 1fr)"] { grid-template-columns: minmax(0, 1fr) !important; }
++}

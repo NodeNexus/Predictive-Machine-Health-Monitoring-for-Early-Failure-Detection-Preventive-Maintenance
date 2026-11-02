@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""CLI: run the trained IDEA LAB thermal classifier on a single image.
+"""CLI: run the trained Multimodal Machine Health Monitoring and Anomaly Detection thermal classifier on a single image.
 
 Usage:
     python scripts/test_thermal_model.py --image "<path>"
@@ -16,7 +16,7 @@ from ml.thermal.inference import ThermalClassifier  # noqa: E402
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run the IDEA LAB thermal classifier on one image.")
+    parser = argparse.ArgumentParser(description="Run the Multimodal Machine Health Monitoring and Anomaly Detection thermal classifier on one image.")
     parser.add_argument("--image", required=True, help="Path to a thermal JPEG image.")
     parser.add_argument("--top-k", type=int, default=3, help="Number of top predictions to show.")
     args = parser.parse_args()

@@ -2,7 +2,7 @@
 
 Level 3 (deep learning / learned feature models) is intentionally not
 implemented - there isn't yet a validated dataset/training setup that
-would justify it (see docs/DEVELOPMENT.md). The layering is designed so
+would justify it (see docs/history/DEVELOPMENT.md). The layering is designed so
 adding it later means adding a third opinion here, not restructuring
 this module.
 """

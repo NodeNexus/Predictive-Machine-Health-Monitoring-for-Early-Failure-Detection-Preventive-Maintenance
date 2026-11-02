@@ -1,4 +1,4 @@
-"""Central configuration for IDEA LAB.
+"""Central configuration for Multimodal Machine Health Monitoring and Anomaly Detection.
 
 All processing parameters live here (or are overridable via environment
 variables / a .env file) so no module hardcodes tunable constants.
@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="IDEALAB_", env_file=".env", extra="ignore")
 
     # --- General ---
-    app_name: str = "IDEA LAB"
+    app_name: str = "Multimodal Machine Health Monitoring and Anomaly Detection"
     environment: str = "development"
 
     # --- Paths ---
@@ -91,6 +91,14 @@ class Settings(BaseSettings):
     # origins stay in the default so nothing extra needs configuring for
     # `npm run dev`. Use `cors_origin_list` to get the parsed list.
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
+    # Optional: directory of the BUILT dashboard (frontend/dist). When set, this backend also serves it at "/",
+    # so one origin carries the page, /api, the video route and /ws/telemetry (e.g. behind a single tunnel).
+    # Unset (default) leaves the backend API-only, as in development.
+    serve_frontend_dir: Path | None = None
+    # Optional: directory of low-bitrate browser-preview copies, same file names as the catalogued videos. When a copy
+    # exists, /api/demo/thermal-video streams it to the browser (useful over slow links). Backend analysis always reads
+    # the original file. Unset (default) streams the original.
+    video_preview_dir: Path | None = None
 
     @property
     def cors_origin_list(self) -> list[str]:

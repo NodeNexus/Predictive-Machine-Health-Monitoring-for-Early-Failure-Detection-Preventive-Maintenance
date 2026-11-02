@@ -1,0 +1,18 @@
+# Render Blueprint for the demo GATEWAY only: a tiny Node proxy with a fixed onrender.com URL that forwards to the
+# Raspberry Pi's current Cloudflare Quick Tunnel. It runs no models and needs no build step.
+# This is separate from the repository-root render.yaml (which deploys the full backend). When creating the
+# Blueprint in Render, set "Blueprint Path" to deploy/render/render.yaml. See docs/RENDER_GATEWAY.md.
+services:
+  - type: web
+    name: mmhm-demo
+    runtime: node
+    plan: free
+    rootDir: deploy/render
+    buildCommand: "echo no build needed"
+    startCommand: "node server.js"
+    healthCheckPath: /healthz
+    envVars:
+      - key: REGISTER_TOKEN
+        generateValue: true # random secret; copy it into .run/render.env on the Pi
+      - key: TUNNEL_URL
+        sync: false # optional starting value; the Pi overwrites it on every start

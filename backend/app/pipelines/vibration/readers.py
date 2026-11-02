@@ -22,7 +22,7 @@ class IMSVibrationDatasetReader(VibrationInput):
     """Streams one channel of the IMS run-to-failure dataset.
 
     Each file on disk is a 20,480-point, tab-separated 1-second snapshot
-    (see docs/DATASETS.md). `channel` selects which column (0-indexed) to
+    (see docs/history/DATASETS.md). `channel` selects which column (0-indexed) to
     stream - e.g. channel 0 = bearing 1 in the 4-channel test sets.
 
     `start_file`/`end_file` optionally bound playback to a sorted-file-index

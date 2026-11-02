@@ -32,6 +32,12 @@ class AudioFileReader(AudioInput):
         self._channels = 1
         self._sampwidth = 2
 
+    def progress(self) -> tuple[float, float] | None:
+        """(position_seconds, total_seconds) of the clip, or None before it is open."""
+        if self._wav is None or not self._sample_rate:
+            return None
+        return self._wav.tell() / self._sample_rate, self._wav.getnframes() / self._sample_rate
+
     def open(self) -> None:
         if not self._path.is_file():
             raise FileNotFoundError(f"Audio file not found: {self._path}")

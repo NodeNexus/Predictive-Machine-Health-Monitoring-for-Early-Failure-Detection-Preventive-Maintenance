@@ -2,11 +2,11 @@
 """Builds leak-resistant train/validation/test splits for the two thermal
 motor datasets, and writes machine-readable manifests.
 
-This script does NOT train anything, does NOT touch the existing IDEA LAB
+This script does NOT train anything, does NOT touch the existing Multimodal Machine Health Monitoring and Anomaly Detection
 thermal pipeline, and does NOT copy images - manifests reference the
 original files in place.
 
-Grouping methodology (see docs/THERMAL_SPLIT_REPORT.md for the full
+Grouping methodology (see docs/history/THERMAL_SPLIT_REPORT.md for the full
 justification):
 
 Dataset 1 (Induction Motor-Thermal Images):

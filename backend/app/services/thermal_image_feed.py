@@ -23,6 +23,7 @@ from pathlib import Path
 import numpy as np
 
 from app.core.logging import get_logger
+from app.core.paths import resolve_recorded_path
 from app.pipelines.thermal.confidence_gate import apply_confidence_gate
 from app.pipelines.thermal.ml_model import ThermalMLModel
 
@@ -66,7 +67,7 @@ def build_feed() -> list[dict]:
     feed: list[dict] = []
     for i, record in enumerate(records):
         image_id = f"{record['class']}_{i:02d}"
-        path = Path(record["image_path"])
+        path = resolve_recorded_path(record["image_path"])
         _path_by_id[image_id] = path
 
         prediction = None
@@ -80,7 +81,8 @@ def build_feed() -> list[dict]:
                 logger.warning(f"Thermal image feed inference failed for {path}: {exc}")
 
         gated = apply_confidence_gate(prediction, model_version=_model.model_version)
-        feed.append({"image_id": image_id, **gated})
+        # `true_class` is the held-out test image's label from the saved split manifest (not a model output).
+        feed.append({"image_id": image_id, "true_class": record["class"], **gated})
 
     _feed_cache = feed
     logger.info(f"Thermal image feed built: {len(feed)} images, model_available={_model.available}")

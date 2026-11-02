@@ -4,7 +4,7 @@ presenter to pick from instead of typing raw filesystem paths live.
 Every path is resolved relative to `settings.dataset_dir`/`video_dir`
 (never a machine-specific absolute path baked in), and every IMS file
 range below was determined by actually inspecting the real data - not
-guessed - documented inline. See docs/DEVELOPMENT.md for the full
+guessed - documented inline. See docs/history/DEVELOPMENT.md for the full
 investigation.
 """
 from __future__ import annotations

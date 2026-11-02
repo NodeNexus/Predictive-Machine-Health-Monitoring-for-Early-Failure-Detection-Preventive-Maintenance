@@ -1,6 +1,6 @@
 """Loads the trained thermal classifier and runs single-image inference.
 
-Shared by scripts/test_thermal_model.py (CLI) and, if IDEA LAB integration
+Shared by scripts/test_thermal_model.py (CLI) and, if Multimodal Machine Health Monitoring and Anomaly Detection integration
 is judged low-risk, the runtime thermal pipeline. Does not fabricate a
 result if the checkpoint is missing - raises a clear error instead.
 """

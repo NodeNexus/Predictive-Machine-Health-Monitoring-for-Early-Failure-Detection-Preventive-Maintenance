@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 rem ============================================================
-rem IDEA LAB - one-click Windows startup launcher
+rem Multimodal Machine Health Monitoring and Anomaly Detection - one-click Windows startup launcher
 rem This script only automates starting the existing backend and
 rem frontend. It does not modify application logic, ports, or
 rem configuration.
@@ -16,7 +16,7 @@ if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
 set "PYEXE=%ROOT%\backend\.venv\Scripts\python.exe"
 
 echo ============================================================
-echo                   IDEA LAB
+echo                   Multimodal Machine Health Monitoring and Anomaly Detection
 echo              MACHINE HEALTH PLATFORM
 echo ============================================================
 echo.
@@ -27,7 +27,7 @@ echo [1/6] Checking project...
 
 if not exist "%ROOT%\backend" (
     echo [ERROR] "backend" folder not found at "%ROOT%\backend"
-    echo Make sure run_idea_lab.bat is in the IDEA LAB project root.
+    echo Make sure run_idea_lab.bat is in the Multimodal Machine Health Monitoring and Anomaly Detection project root.
     echo.
     pause
     exit /b 1
@@ -35,7 +35,7 @@ if not exist "%ROOT%\backend" (
 
 if not exist "%ROOT%\frontend" (
     echo [ERROR] "frontend" folder not found at "%ROOT%\frontend"
-    echo Make sure run_idea_lab.bat is in the IDEA LAB project root.
+    echo Make sure run_idea_lab.bat is in the Multimodal Machine Health Monitoring and Anomaly Detection project root.
     echo.
     pause
     exit /b 1
@@ -61,7 +61,7 @@ echo.
 echo [2/6] Checking Python environment...
 
 if not exist "%PYEXE%" (
-    echo [ERROR] IDEA LAB backend virtual environment was not found.
+    echo [ERROR] Multimodal Machine Health Monitoring and Anomaly Detection backend virtual environment was not found.
     echo.
     echo Expected: %PYEXE%
     echo.
@@ -79,13 +79,27 @@ echo.
 
 echo [3/6] Checking Node/npm...
 
+set "FRONTEND_CMD=npm run dev"
 call npm --version >nul 2>&1
 if errorlevel 1 (
-    echo [ERROR] npm was not found on PATH.
-    echo Please install Node.js from https://nodejs.org/ and try again.
-    echo.
-    pause
-    exit /b 1
+    rem npm is missing. If node and the installed Vite are available, run Vite through node directly.
+    where node >nul 2>&1
+    if errorlevel 1 (
+        echo [ERROR] Neither npm nor node was found on PATH.
+        echo Please install Node.js from https://nodejs.org/ and try again.
+        echo.
+        pause
+        exit /b 1
+    )
+    if not exist "%ROOT%\frontend\node_modules\vite\bin\vite.js" (
+        echo [ERROR] npm was not found on PATH and Vite is not installed in frontend\node_modules.
+        echo Please install Node.js from https://nodejs.org/ and run npm install in frontend.
+        echo.
+        pause
+        exit /b 1
+    )
+    set "FRONTEND_CMD=node node_modules\vite\bin\vite.js"
+    echo [WARNING] npm was not found on PATH - starting the frontend with node directly.
 )
 
 if not exist "%ROOT%\frontend\node_modules" (
@@ -98,7 +112,7 @@ if not exist "%ROOT%\frontend\node_modules" (
     exit /b 1
 )
 
-echo [OK] npm is available and frontend dependencies are installed.
+echo [OK] Frontend tooling and dependencies found ^(%FRONTEND_CMD%^).
 echo.
 
 echo [4/6] Scanning datasets...
@@ -106,7 +120,7 @@ echo [4/6] Scanning datasets...
 if exist "%ROOT%\scripts\scan_datasets.py" (
     "%PYEXE%" "%ROOT%\scripts\scan_datasets.py"
     if errorlevel 1 (
-        echo [WARNING] Dataset scan failed. IDEA LAB can still start, but the
+        echo [WARNING] Dataset scan failed. Multimodal Machine Health Monitoring and Anomaly Detection can still start, but the
         echo           dataset registry may be incomplete.
     ) else (
         echo [OK] Dataset scan completed.
@@ -123,7 +137,7 @@ if not errorlevel 1 (
     echo [WARNING] Port 8000 is already in use - the backend may already be running.
 )
 
-start "IDEA LAB - BACKEND" /D "%ROOT%\backend" cmd /k ""%PYEXE%" -m uvicorn app.main:app --reload --port 8000"
+start "Multimodal Machine Health Monitoring and Anomaly Detection - BACKEND" /D "%ROOT%\backend" cmd /k ""%PYEXE%" -m uvicorn app.main:app --reload --port 8000"
 
 echo [OK] Backend launch requested in its own window.
 echo.
@@ -135,7 +149,7 @@ if not errorlevel 1 (
     echo [WARNING] Port 5173 is already in use - the frontend may already be running.
 )
 
-start "IDEA LAB - FRONTEND" /D "%ROOT%\frontend" cmd /k "npm run dev"
+start "Multimodal Machine Health Monitoring and Anomaly Detection - FRONTEND" /D "%ROOT%\frontend" cmd /k "%FRONTEND_CMD%"
 
 echo [OK] Frontend launch requested in its own window.
 echo.
@@ -144,17 +158,17 @@ echo Waiting for services to become ready...
 echo.
 
 call :wait_for_url "http://127.0.0.1:8000/api/health" "Backend"
-call :wait_for_url "http://localhost:5173" "Frontend"
+call :wait_for_url "http://127.0.0.1:5173" "Frontend"
 
-start "" "http://localhost:5173"
+start "" "http://127.0.0.1:5173"
 
 echo.
 echo ============================================================
-echo                   IDEA LAB READY
+echo                   Multimodal Machine Health Monitoring and Anomaly Detection READY
 echo ============================================================
 echo.
 echo Dashboard:
-echo   http://localhost:5173
+echo   http://127.0.0.1:5173
 echo.
 echo Backend:
 echo   http://127.0.0.1:8000
@@ -165,9 +179,9 @@ echo.
 echo ============================================================
 echo.
 echo Backend and frontend are running in their own windows
-echo ^(titled "IDEA LAB - BACKEND" and "IDEA LAB - FRONTEND"^).
+echo ^(titled "Multimodal Machine Health Monitoring and Anomaly Detection - BACKEND" and "Multimodal Machine Health Monitoring and Anomaly Detection - FRONTEND"^).
 echo Closing THIS window will NOT stop them.
-echo To stop IDEA LAB, close those two windows directly.
+echo To stop Multimodal Machine Health Monitoring and Anomaly Detection, close those two windows directly.
 echo.
 pause >nul
 exit /b 0

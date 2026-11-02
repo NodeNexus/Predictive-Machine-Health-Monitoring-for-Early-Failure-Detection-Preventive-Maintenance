@@ -1,11 +1,11 @@
-# Render Blueprint for the IDEA LAB BACKEND ONLY (a Python FastAPI Web
+# Render Blueprint for the Multimodal Machine Health Monitoring and Anomaly Detection BACKEND ONLY (a Python FastAPI Web
 # Service - REST + WebSocket + thermal video streaming). The frontend is
-# deployed separately later; see RENDER_DEPLOY.md.
+# deployed separately later; see docs/history/RENDER_DEPLOY.md.
 #
 # No `disk:` / persistent volume is attached: that requires a paid Render
 # instance type, which this blueprint deliberately avoids. SQLite therefore
 # lives on the free instance's local ephemeral disk - see the "SQLite
-# persistence" section in RENDER_DEPLOY.md for what that means in practice.
+# persistence" section in docs/history/RENDER_DEPLOY.md for what that means in practice.
 services:
   - type: web
     name: idealab-backend
@@ -20,4 +20,4 @@ services:
       - key: IDEALAB_ENVIRONMENT
         value: production
       - key: IDEALAB_CORS_ORIGINS
-        sync: false # set after the frontend is deployed - see RENDER_DEPLOY.md
+        sync: false # set after the frontend is deployed - see docs/history/RENDER_DEPLOY.md

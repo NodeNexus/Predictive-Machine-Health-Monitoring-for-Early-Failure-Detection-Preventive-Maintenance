@@ -47,3 +47,6 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Raspberry Pi demo runtime state (pid files, logs, tunnel URL)
+.run/

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Trains the IDEA LAB thermal classifier (Dataset 1, 6 classes) via
+"""Trains the Multimodal Machine Health Monitoring and Anomaly Detection thermal classifier (Dataset 1, 6 classes) via
 transfer learning from MobileNetV3-Small.
 
 Reproducible: fixed seed, deterministic dataloader shuffling. Does not

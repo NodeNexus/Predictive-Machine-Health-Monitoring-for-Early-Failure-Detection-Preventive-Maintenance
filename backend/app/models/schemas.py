@@ -62,6 +62,9 @@ class TelemetryPayload(BaseModel):
     health: MachineHealthState | None = None
     ml_fusion: dict[str, Any] | None = None
     events: list[dict[str, Any]] = Field(default_factory=list)
+    # Real replay position per running modality, read from the file readers
+    # ({"unit": "seconds"|"files", "position", "total", "loop"}). Absent when unknown.
+    progress: dict[str, dict[str, Any]] = Field(default_factory=dict)
 
 
 class DatasetInfo(BaseModel):

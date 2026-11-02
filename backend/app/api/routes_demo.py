@@ -3,7 +3,14 @@ from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 
+import json
+
+from app.core.config import settings
+from app.core.paths import REPO_ROOT
 from app.models.schemas import DemoStartRequest, DemoStatusOut
+from app.pipelines.acoustic.readers import AudioFileReader
+from app.pipelines.thermal.readers import ThermalVideoReader
+from app.pipelines.vibration.readers import IMSVibrationDatasetReader
 from app.services import thermal_image_feed
 from app.services.demo_runner import demo_runner
 from app.services.demo_scenarios import list_machine_videos, list_scenarios
@@ -27,10 +34,55 @@ def get_machine_videos() -> list[dict]:
     return [entry.model_dump() for entry in list_machine_videos()]
 
 
+def _validate_sources(payload: DemoStartRequest) -> None:
+    """Open each requested source with the same reader the replay will use, so a source
+    that could never be replayed is rejected here instead of starting a silent, empty loop."""
+    if not (payload.thermal_source or payload.vibration_source or payload.acoustic_source):
+        raise HTTPException(status_code=400, detail="Provide at least one source to replay.")
+
+    def reject(label: str, exc: Exception) -> HTTPException:
+        # A missing file is reported without the server's filesystem path (this API may be reachable from outside).
+        reason = "the file is not available on this server" if isinstance(exc, FileNotFoundError) else str(exc)
+        return HTTPException(status_code=422, detail=f"{label} source cannot be replayed: {reason}")
+
+    if payload.thermal_source:
+        reader = ThermalVideoReader(payload.thermal_source)
+        try:
+            reader.open()
+        except (FileNotFoundError, OSError, ValueError) as exc:
+            raise reject("Thermal video", exc) from exc
+        finally:
+            reader.close()
+    if payload.acoustic_source:
+        audio = AudioFileReader(payload.acoustic_source)
+        try:
+            audio.open()
+        except (FileNotFoundError, OSError, ValueError, EOFError) as exc:
+            raise reject("Sound", exc) from exc
+        finally:
+            audio.close()
+    if payload.vibration_source:
+        vibration = IMSVibrationDatasetReader(
+            Path(payload.vibration_source),
+            channel=payload.vibration_channel,
+            sample_rate=settings.vibration_default_sample_rate,
+            start_file=payload.vibration_start_file,
+            end_file=payload.vibration_end_file,
+        )
+        try:
+            vibration.open()
+            vibration.read_chunk(1)  # loads the first file, which also checks the channel exists
+        except (FileNotFoundError, OSError, ValueError) as exc:
+            raise reject("Vibration", exc) from exc
+        finally:
+            vibration.close()
+
+
 @router.post("/start", response_model=DemoStatusOut)
 async def start_demo(payload: DemoStartRequest) -> DemoStatusOut:
     if demo_runner.is_running:
         raise HTTPException(status_code=409, detail="A demo session is already running")
+    _validate_sources(payload)
     return await demo_runner.start(payload)
 
 
@@ -69,12 +121,38 @@ def get_thermal_video() -> FileResponse:
         raise HTTPException(status_code=404, detail="No active thermal demo source")
 
     path = Path(source)
+    # Only catalogued project videos are ever served, whatever source a session was started with.
+    catalogued = {Path(v.path).resolve() for v in list_machine_videos()} | {
+        Path(s.source).resolve() for s in list_scenarios() if s.modality == "thermal"
+    }
+    if path.resolve() not in catalogued:
+        raise HTTPException(status_code=403, detail="The active thermal source is not a catalogued demo video")
     if not path.is_file():
         raise HTTPException(status_code=404, detail=f"Thermal source file not found: {source}")
+    if settings.video_preview_dir is not None:  # lighter copy of the SAME catalogued video, for the browser player only
+        preview = settings.video_preview_dir / path.name
+        if preview.is_file():
+            path = preview
 
     # No `filename=` - that would default Content-Disposition to
     # "attachment" and make the browser download instead of play inline.
     return FileResponse(path, media_type="video/mp4")
+
+
+@router.get("/thermal-evaluation")
+def get_thermal_evaluation() -> dict:
+    """Saved held-out TEST-image results of the thermal classifier, read from its evaluation artifact.
+    These are image results; accuracy on the demo videos has not been measured."""
+    model_dir = REPO_ROOT / "models" / "thermal"
+    try:
+        evaluation = json.loads((model_dir / "test_evaluation.json").read_text(encoding="utf-8"))
+        metadata = json.loads((model_dir / "model_metadata.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise HTTPException(status_code=404, detail=f"Thermal evaluation artifact unavailable: {exc}") from exc
+    keys = ("accuracy", "macro_precision", "macro_recall", "macro_f1", "top1_accuracy", "top3_accuracy",
+            "test_count", "class_names", "per_class", "avg_inference_seconds")
+    return {"model_version": metadata.get("model_version"), "dataset": metadata.get("dataset"),
+            **{k: evaluation.get(k) for k in keys}}
 
 
 @router.get("/thermal-image-feed")

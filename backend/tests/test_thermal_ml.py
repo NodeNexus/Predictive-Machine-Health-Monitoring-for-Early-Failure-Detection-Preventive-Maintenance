@@ -12,7 +12,7 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 
-from ml.thermal.dataset import class_names_from_manifest, load_manifest_records  # noqa: E402
+from ml.thermal.dataset import class_names_from_manifest, load_manifest_records, resolve_image_path  # noqa: E402
 from ml.thermal.evidence import to_health_evidence  # noqa: E402
 from ml.thermal.model import build_model, count_trainable_parameters  # noqa: E402
 
@@ -78,7 +78,7 @@ def test_thermal_classifier_loads_and_predicts_on_real_image():
     assert set(classifier.class_names) == {"HFL", "HML", "HNL", "CFL", "CML", "CNL"}
 
     records = load_manifest_records()
-    test_images = [r["image_path"] for r in records if r["split"] == "test"]
+    test_images = [resolve_image_path(r["image_path"]) for r in records if r["split"] == "test"]
     assert test_images, "no test images found in manifest"
 
     result = classifier.predict(test_images[0])

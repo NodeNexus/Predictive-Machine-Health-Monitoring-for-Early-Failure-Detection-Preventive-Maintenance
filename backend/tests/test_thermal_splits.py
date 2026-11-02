@@ -17,6 +17,9 @@ import pytest
 
 SCRIPTS_DIR = Path(__file__).resolve().parents[2] / "scripts"
 sys.path.insert(0, str(SCRIPTS_DIR))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from ml.thermal.dataset import resolve_image_path  # noqa: E402
 
 import prepare_thermal_splits as pts  # noqa: E402
 
@@ -179,7 +182,7 @@ def test_dataset2_flags_classes_with_zero_validation_or_test(ds2_records):
     known_starved = {"A30", "A&C30", "A10", "A&C10"}
     assert starved == known_starved, (
         f"Set of validation/test-starved classes changed: {starved} vs expected {known_starved} - "
-        "re-check docs/THERMAL_SPLIT_REPORT.md, this may be an improvement or a regression."
+        "re-check docs/history/THERMAL_SPLIT_REPORT.md, this may be an improvement or a regression."
     )
 
 
@@ -196,7 +199,7 @@ def test_manifest_files_are_valid_json_with_required_fields():
             for field in ("dataset", "image_path", "split", "class", "group_id"):
                 assert field in record
             assert record["split"] in ("train", "validation", "test", None)
-            assert Path(record["image_path"]).is_file(), f"Missing image referenced in manifest: {record['image_path']}"
+            assert resolve_image_path(record["image_path"]).is_file(), f"Missing image referenced in manifest: {record['image_path']}"
 
 
 def test_missing_image_raises_clear_error(tmp_path):

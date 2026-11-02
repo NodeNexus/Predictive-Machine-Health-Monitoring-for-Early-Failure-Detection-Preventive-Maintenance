@@ -33,6 +33,16 @@ class ThermalVideoReader(ThermalInput):
         self._frame_stride: int = 1
         self._frame_index = 0
         self._returned_index = 0
+        self._last_video_time_s: float | None = None
+
+    def progress(self) -> tuple[float, float] | None:
+        """(position_seconds, total_seconds) of the replay, or None if the container reports no length."""
+        if self._cap is None or self._last_video_time_s is None or not self._native_fps:
+            return None
+        frames = self._cap.get(cv2.CAP_PROP_FRAME_COUNT)
+        if not frames or frames <= 0:
+            return None
+        return self._last_video_time_s, frames / self._native_fps
 
     def open(self) -> None:
         if not self._path.is_file():
@@ -63,6 +73,7 @@ class ThermalVideoReader(ThermalInput):
 
             image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             video_time_s = index / self._native_fps if self._native_fps else 0.0
+            self._last_video_time_s = video_time_s
             result = ThermalFrame(
                 frame_index=self._returned_index,
                 timestamp=datetime.now(timezone.utc),
